@@ -1,0 +1,316 @@
+/*+++ Startscreen +++*/
+
+#infolabel {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #444, stop: 0.6 black, stop:1 black);
+  color: white;
+  border-top: 1px solid gray;
+}
+
+/*+++ Fullscreenplaylist +++*/
+
+#fullscreenplaylist {
+   background-color:black;
+   border-left: 1px solid gray;
+}
+
+/*+++ Fullscreenbar +++*/
+
+#fullscreenbar {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #444, stop: 0.6 black, stop:1 black);
+  border-top: 1px solid gray;
+  /*padding:10px;*/
+  color: white;
+}
+ 
+#fullscreenbarTitlelabel {
+  color:white;
+  text-align:left;
+}
+
+#fullscreenbarTimeLabel {
+  text-align:right;
+  color:white;
+}
+
+#fullscreenbar QSlider:groove {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 black, stop:1 #444);
+  border:1px solid gray;
+  border-radius: 4px;
+  height: 8px;
+  /*margin:10px;*/
+}
+
+#fullscreenbar QSlider:handle {
+  margin-top: -2px;
+  margin-bottom: -2px;
+  width: 8px;
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #333, stop: 0.5 black, stop:1 black);
+  border-radius: 4px;
+  border:1px solid gray;
+}
+
+#fullscreenbar QToolButton {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+#fullscreenbar QToolButton:hover {
+  border: 1px solid gray;
+}
+
+#fullscreenbar QToolButton:pressed {
+  border: 1px solid #444;
+} 
+
+/*+++ Toolbar +++*/
+
+#mainToolBar {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #444, stop: 0.6 black, stop:1 black);
+  border-top:1px solid gray;
+  border-radius: 0px;
+  padding:5px;
+}
+
+#mainToolBar QSlider:groove {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 black, stop:1 #444);
+  border:1px solid gray;
+  border-radius: 4px;
+  height: 8px;
+}
+
+#mainToolBar QSlider:handle {
+  margin-top: -2px;
+  margin-bottom: -2px;
+  width: 8px;
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #333, stop: 0.5 black, stop:1 black);
+  border-radius: 4px;
+  border:1px solid gray;
+}
+
+#mainToolBar QToolButton {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+#mainToolBar QToolButton:hover {
+  border: 1px solid gray;
+}
+
+#mainToolBar QToolButton:pressed {
+  border: 1px solid #444;
+}
+
+/*+++ Menubar +++*/
+
+QMenuBar {
+  background-color:black;
+  color:lightgray;
+}
+
+QMenuBar::item {
+  spacing: 3px; /* spacing between menu bar items */
+  padding: 2px 8px;
+  background: transparent;
+  border-radius: 4px;
+}
+
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+  background: gray;
+}
+
+QMenuBar::item:pressed {
+  background: gray;
+}
+
+/*+++ Menu items +++*/
+
+QMenu {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #444, stop: 0.6 black, stop:1 black);
+  color:lightgray;
+  border-radius: 0px;
+}
+ 
+QMenu::item {
+  padding: 4px 20px;
+}
+
+QMenu::item:selected {
+  background: gray;
+}
+
+QMenu::icon:checked {
+  background: lightgray;
+  border: 1px inset gray;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+}
+
+QMenu::separator {
+  height: 1px;
+  background: lightgray;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+QMenu::indicator {
+  width: 13px;
+  height: 13px;
+}
+
+/*non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive)*/
+QMenu::indicator:non-exclusive:unchecked {
+  image: url($themeDir/draw-circle.png);
+}
+
+QMenu::indicator:non-exclusive:unchecked:selected {
+  image: url($themeDir/draw-circle.png);
+}
+
+QMenu::indicator:non-exclusive:checked {
+  image: url($themeDir/draw-donut.png);
+}
+
+QMenu::indicator:non-exclusive:checked:selected {
+  image: url($themeDir/draw-donut.png);
+}
+
+/* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive)*/
+QMenu::indicator:exclusive:unchecked {
+  image: url($themeDir/draw-circle.png);
+}
+
+QMenu::indicator:exclusive:unchecked:selected {
+  image: url($themeDir/draw-circle.png);
+}
+
+QMenu::indicator:exclusive:checked {
+  image: url($themeDir/draw-donut.png);
+}
+
+QMenu::indicator:exclusive:checked:selected {
+  image: url($themeDir/draw-donut.png);
+}
+
+/*+++ Statusbar +++*/
+
+QStatusBar {
+  background-color: black;
+}
+
+#timelabel {
+  color: lightgray;
+  padding-right:5px;
+  padding-left:5px;
+}
+
+/*+++ Playlist +++*/
+
+/*KListWidget*/
+
+#playlist {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #444, stop: 0.6 black, stop:1 black);
+  border-radius: 0px;
+  show-decoration-selected: 1; /* make the selection span the entire width of the view */
+}
+
+#playlist::item {
+  background: red;
+}
+
+#playlist::item:alternate {
+  background: yellow;
+}
+
+#playlist::item:selected {
+  background: green;
+}
+
+#playlist::item:selected:!active {
+  background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #F5D0A9, stop: 1 #FF8000);
+}
+
+#playlist::item:selected:active {
+  background: blue;
+}
+
+#playlist::item:hover {
+  background: brown;
+}
+
+/*KToolbar*/
+
+#playlisttoolbar {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #444, stop: 0.6 black, stop:1 black);
+  border-radius: 0px;
+  border-top:1px solid gray;
+  padding:5px;
+}
+
+#playlisttoolbar QToolButton {
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+#playlisttoolbar QToolButton:hover {
+  border: 1px solid gray;
+}
+
+#playlisttoolbar QToolButton:pressed {
+  border: 1px solid #444;
+}
+
+/*QDockWidget*/
+
+QMainWindow::separator {
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  background-color:black;
+  width: 10px; /* when vertical */
+  height: 10px; /* when horizontal */
+}
+
+QMainWindow::separator:hover {
+  background: gray;
+}
+
+QToolBar::handle {
+  /*background:url($themeDir/toolbar-handle.png);*/
+  color:white;
+}
+
+#playlistdock {
+  background-color:black;
+  color:lightgray;
+  titlebar-close-icon: url($themeDir/close-icon.png);
+  titlebar-normal-icon: url($themeDir/normal-icon.png);
+}
+
+#playlistdock::title {
+  text-align: left;
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0 #444, stop: 0.6 black, stop:1 black);
+  border-top:1px solid gray;
+  border-bottom:1px solid gray;
+  padding:5px;
+}
+
+#playlistdock::close-button, #playlistdock::float-button {
+  border: 0px;
+  padding: 0px;
+}
+
+#playlistdock::close-button:hover, #playlistdock::float-button:hover {
+  background: transparent;
+  border: 1px solid gray;
+  border-radius: 6px;
+}
+
+#playlistdock::close-button:pressed, #playlistdock::float-button:pressed {
+  padding: 1px -1px -1px 1px;
+}
+
+ 

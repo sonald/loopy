@@ -1,0 +1,24 @@
+-------------
+Theming loopy
+-------------
+
+If you want to create a new theme:
+
+- goto ~/.kde/share/apps/loopy
+
+- if the folder loopy doesn't exists create it
+  (or change the toolbar layout and you will get this loopy folder)
+
+- copy the theme folder from the source package there
+  (~/.kde/share/apps/loopy/themes)
+
+- open this themes folder and rename a contained folder
+  (~/.kde/share/apps/loopy/themes/blackglass-overkill)
+
+- edit the contained style.qss
+
+- open loopy preferences and load your style
+
+NEW: loopy >= 0.5.2
+
+- add the reload theme button to the toolbar, and you will see your changes on the fly

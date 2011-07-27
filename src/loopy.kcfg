@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="loopyrc"/>
+
+  <group name="SeekingOptions">
+     <entry name="ButtonSeek" type="Int">
+      <label>Button seek</label>
+      <default>10</default>
+    </entry>
+    <entry name="ButtonJump" type="Int">
+      <label>Button jump</label>
+      <default>60</default>
+    </entry>
+    <entry name="MouseWheelSeek" type="Int">
+      <label>Mousewheel seek</label>
+      <default>10</default>
+    </entry>
+  </group>
+
+  <group name="Theme">
+    <entry name="Theme" type="String">
+      <label>Theme</label>
+      <default>graygradients</default> 
+    </entry>
+  </group>
+
+  <group name="General">
+     <entry name="TrayIcon" type="Bool">
+      <label>Show tray icon</label>
+      <default>false</default>
+    </entry>
+    <entry name="HidePlaylist" type="Bool">
+      <label>Hide Playlist on startup</label>
+      <default>true</default>
+    </entry>
+    <entry name="AutoResizeToVideo" type="Bool">
+      <label>Autoresize to videosize</label>
+      <default>false</default>
+    </entry>
+    <entry name="AlwaysEnqueue" type="Bool">
+      <label>Always enqueue files</label>
+      <default>false</default>
+    </entry>
+  </group>
+
+</kcfg>

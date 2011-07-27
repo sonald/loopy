@@ -1,0 +1,47 @@
+[Desktop Entry]
+Type=Service
+Actions=PlayDVD;
+X-KDE-Solid-Predicate=OpticalDisc.availableContent & 'VideoDvd'
+
+[Desktop Action PlayDVD]
+Name=Play DVD with Loopy
+Name[bg]=Възпроизвеждане на DVD с Loopy
+Name[ca]=Reprodueix DVD amb Loopy
+Name[ca@valencia]=Reprodueix DVD amb Loopy
+Name[cs]=Přehrát DVD v Loopy
+Name[csb]=Grôj DVD w Loopy
+Name[da]=Afspil dvd med Loopy
+Name[de]=DVD mit Loopy abspielen
+Name[el]=Αναπαραγωγή DVD με το Loopy
+Name[en_GB]=Play DVD with Loopy
+Name[es]=Reproducir DVD con Loopy
+Name[et]=Esita DVD Loopy'is
+Name[fi]=Toista dvd-levy Loopyssa
+Name[fr]=Lire un DVD avec Loopy
+Name[ga]=Seinn DVD le Loopy
+Name[gl]=Reproducir o DVD con Loopy
+Name[hu]=DVD lejátszása a Loopy-vel
+Name[it]=Riproduci DVD con Loopy
+Name[km]=ចាក់​ឌីវីឌី​ជាមួយ Loopy
+Name[ko]=Loopy으로 DVD 재생하기
+Name[lt]=Groti DVD su Loopy
+Name[lv]=Atskaņot DVD ar Loopy
+Name[nb]=Spill av DVD med Loopy
+Name[nds]=DVD mit Loopy afspelen
+Name[ne]=क्याफिनसँग डीभीडी प्ले गर्नुहोस्
+Name[nl]=DVD met Loopy afspelen
+Name[pa]=ਕੈਫ਼ੀਨ ਨਾਲ DVD ਚਲਾਓ
+Name[pl]=Odtwarzaj DVD w Loopy
+Name[pt]=Ver o DVD com o Loopy
+Name[pt_BR]=Reproduzir DVD com o Loopy
+Name[ro]=Redare DVD cu Loopy
+Name[ru]=Воспроизвести DVD в Loopy
+Name[sv]=Spela dvd med Loopy
+Name[tg]=Намоиши DVD бо Loopy
+Name[tr]=DVD'yi Loopy ile Oynat
+Name[uk]=Відтворити DVD за допомогою Loopy
+Name[x-test]=xxPlay DVD with Loopyxx
+Name[zh_CN]=用 Loopy 播放 DVD
+Name[zh_TW]=用 Loopy 播放 DVD
+Exec=loopy --dvd %f
+Icon=applications-multimedia

@@ -1,0 +1,62 @@
+----------------
+Loopy Changelog:
+----------------
+
+Version 0.5.3
+
+- Fixed strange messageBox behaviour
+- Fixed time display in the statusbar (cosmetic)
+- Updated theme: graygradients
+- New default theme: graygradients
+- Updated description in about dialog
+
+- Updated german translation
+
+Version 0.5.2
+
+- Added restore windowstate after crash, fullscreen exit etc.
+- Added MessageBox: "You get back to normal view with the F3 key"
+- Added toolbutton "Reload theme", usefull for theme devolpers ;-)
+- Added new theme: graygradients
+
+- Updated THEMING
+- Updated german translation
+
+- Homepage: Screenshoots updated
+
+Version 0.5.1
+
+- Updated .desktop files
+- Code cleaned
+
+Version 0.5
+
+- Added playlist to fullscreen mode  ( move mouse to the right screen edge (20px) )
+- Fullscreenbar: Screen edge is now 20px
+- New ToolTipEater class
+- All themes updated (Attention Oxygen style users: You should at least use the blackglass-light theme)
+
+Version 0.4.3
+
+- Added Brazilian Portuguese translation (Thanks Márcio Moraes)
+
+Version 0.4.2
+
+- Fixed .desktop files (Thanks VectoR)
+- Added hungarian translation (Thanks VectoR)
+
+Version 0.4.1
+
+- Updated Czech translation (Thanks Pavel Fric)
+
+Version 0.4
+
+- Option: Autoresize to videosize
+- Option: Always enqueue files
+- Minimal View
+
+- Added Czech translation (Thanks Pavel Fric)
+
+Version 0.3
+
+- First public release

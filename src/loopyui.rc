@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="loopy" version="73">     
+  <MenuBar>
+    <Menu name="file" >
+    <text>&amp;File</text>
+      <Action name="file_open" />
+      <Action name="openUrlAction" />
+      <Action name="playDVDAction" />
+      <Action name="file_open_recent" />
+      <Separator />
+      <Action name="file_quit" />
+    </Menu>
+  
+    <Menu name="play" >
+    <text>&amp;Play</text>
+      <Action name="pause" />
+      <Action name="seekforward" />
+      <Action name="seekbackward" />
+      <Action name="jumpforward" />
+      <Action name="jumpbackward" />
+      <Action name="skipforward" />
+      <Action name="skipbackward" />
+      <Separator/>
+      <Action name="repeatAction" />
+    </Menu>
+  
+    <Menu name="video" >
+    <text>&amp;Video</text>
+      <Menu name="aspectmenu" >
+      <text>&amp;Aspect ratio</text>
+        <Action name="aspectActionAuto" />
+        <Action name="aspectActionScale" />
+        <Action name="aspectAction16_9" />
+        <Action name="aspectAction4_3" />
+      </Menu>
+      <Menu name="scalemenu" >
+      <text>&amp;Scale mode</text>
+        <Action name="scaleActionFit" />
+        <Action name="scaleActionCrop" />
+      </Menu>
+      <Menu name="titlemenu">
+      <text>&amp;Title</text>
+      </Menu>
+      <Menu name="chaptermenu">
+      <text>&amp;Chapter</text>
+      </Menu>
+      <Menu name="anglemenu">
+      <text>&amp;Angle</text>
+      </Menu>
+      <Separator />
+      <Action name="fullscreen" />
+    </Menu>
+  
+    <Menu name="audio" >
+    <text>&amp;Audio</text>
+      <Action name="mute" />
+      <Action name="increasevolume" />
+      <Action name="decreasevolume" />
+    </Menu>
+    
+    <Menu name="settings" >
+      <Action name="playListAction" />
+      <Action name="toggleViewMode" />
+    </Menu>
+  </MenuBar>
+
+  <ToolBar iconText="icononly" iconSize="16" position="bottom" hidden="false" index="0" name="mainToolBar" newline="false" >
+  <text>Main Toolbar</text>
+    <Action name="file_open" />
+    <Action name="file_open_recent" />
+    <Action name="pause" />
+    <Action name="jumpbackward" />
+    <Action name="seekbackward" />
+    <Action name="positionslider" />
+    <Action name="seekforward" />
+    <Action name="jumpforward" />
+    <Action name="volumeslider" />
+    <Action name="playListAction" />
+  </ToolBar>
+ 
+  <Menu name="context_info_popup">
+    <Action name="file_open" />
+    <Action name="openUrlAction" />
+    <Action name="playDVDAction" />
+    <Separator />
+    <Action name="fullscreen" />
+  </Menu>
+    
+  <ActionProperties scheme="Default" />
+</gui>
+

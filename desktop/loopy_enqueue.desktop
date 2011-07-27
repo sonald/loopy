@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Exec=loopy --add %U
+Icon=applications-multimedia
+X-DocPath=
+Comment=Media Player
+Terminal=false
+Name=Enqueue in Loopy
+Name[hu]=A Loopy-listába felveszi
+MimeType=application/ogg;application/ram;application/vnd.rn-realmedia;application/x-quicktime-media-link;video/ogg;video/x-theora+ogg;video/x-ogm+ogg;video/x-ms-wmv;video/x-msvideo;video/x-ms-asf;video/x-matroska;video/mpeg;video/avi;video/quicktime;video/vnd.rn-realvideo;video/x-flic;video/mp4;video/divx;video/x-msvideo;video/x-wmv;video/x-flv;video/flv;
+Categories=AudioVideo;Player;Qt;KDE;
+X-KDE-StartupNotify=false
+X-DBUS-StartupType=Unique
+NoDisplay=true
