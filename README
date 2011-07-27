@@ -1,1 +1,4 @@
 loopy a simple KDE4 media player
+
+recent plans is to add subtitle support. phonon-vlc( version 0.4 ) or 
+phonon-mplayer backend is fine, phonon-gstreamer needs some time.
