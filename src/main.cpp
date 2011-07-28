@@ -1,6 +1,7 @@
 #include <KAboutData>
 #include <KCmdLineArgs>
 #include <KUniqueApplication>
+#include <QTextCodec>
 
 #include "mainwindow.h"
 
@@ -54,5 +55,9 @@ int main(int argc, char *argv[])
     KCmdLineArgs::addCmdLineOptions(MainWindow::cmdLineOptions());
 
     LoopyApplication app;
+    QTextCodec* codec = QTextCodec::codecForName( "UTF-8" );
+    if ( codec )
+        QTextCodec::setCodecForCStrings( codec );
+    
     return app.exec();
 }

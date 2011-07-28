@@ -104,6 +104,8 @@ private slots:
     void aboutToFinish();
     void finished();
     void updateCaption();
+    void updateSubtitlesMenu();
+    void setSubtitle(QAction*);
     void updateTitleMenu();//DVD
     void updateChapterMenu();//DVD
     void updateAngleMenu();//DVD
@@ -116,6 +118,7 @@ private slots:
 
     void scaleChanged(QAction *);
     void aspectChanged(QAction *);
+    void subtitleChanged(QAction *);
     void resizeToVideo();
 
     void fullscreen(bool isFullScreen);
@@ -127,7 +130,8 @@ private slots:
 private:
     Phonon::AudioOutput *audioOutput;
     Phonon::MediaController *mediaController;
-
+    QList<Phonon::SubtitleDescription> m_subtitles;
+    
     KSystemTrayIcon *m_trayIcon;
 
     VideoWidget *m_videoWidget;
@@ -146,7 +150,8 @@ private:
 
     QTimer *disableScreenSaverTimer;
 
-    QActionGroup *titleGroup;//DVD
+    QActionGroup *subtitlesGroup;
+     QActionGroup *titleGroup;//DVD
     QActionGroup *chapterGroup;//DVD
     QActionGroup *angleGroup;//DVD
 

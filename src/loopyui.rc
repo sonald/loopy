@@ -39,6 +39,9 @@
         <Action name="scaleActionFit" />
         <Action name="scaleActionCrop" />
       </Menu>
+      <Menu name="subtitles">
+      <text>&amp;Subtitles</text>
+      </Menu>
       <Menu name="titlemenu">
       <text>&amp;Title</text>
       </Menu>

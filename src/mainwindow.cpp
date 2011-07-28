@@ -101,6 +101,7 @@ MainWindow::MainWindow() : KXmlGuiWindow()
     audioOutput->setVolume(qreal(KConfigGroup(KGlobal::config(), "Audio").
                                  readEntry("Volume", 1.0)));
 
+    updateSubtitlesMenu();
     updateTitleMenu();
     updateChapterMenu();
     updateAngleMenu();
@@ -236,6 +237,12 @@ void MainWindow::setupActions()
     scaleActionCrop->setCheckable(true);
     scaleGroup->addAction(scaleActionCrop);
 
+    /// Subtitle
+    subtitlesGroup = new QActionGroup(this);
+    connect(subtitlesGroup, SIGNAL(triggered(QAction *)), this, SLOT(subtitleChanged(QAction *)));
+    connect(mediaController, SIGNAL(availableSubtitlesChanged()),
+            this, SLOT(updateSubtitlesMenu()));
+    
     //Video submenus only for DVD
     titleGroup = new QActionGroup(this);
     titleCount = 0;
@@ -944,6 +951,11 @@ void MainWindow::scaleChanged(QAction *act)
         m_videoWidget->setScaleMode(Phonon::VideoWidget::FitInView);
 }
 
+void MainWindow::subtitleChanged(QAction *act)
+{
+    setSubtitle(act);
+}
+
 void MainWindow::resizeToVideo()
 {
     if (!isFullScreen() && !isMaximized() && Settings::autoResizeToVideo()) {
@@ -1051,6 +1063,47 @@ void MainWindow::finished()//Repeat file/playlist
         mediaObject->seek(0);
         mediaObject->play();
     }
+}
+
+void MainWindow::updateSubtitlesMenu()
+{
+    QMenu *subtitlesMenu = static_cast<QMenu*>(guiFactory()->container("subtitles", this));
+
+    m_subtitles = mediaController->availableSubtitles();
+    subtitlesMenu->setEnabled( m_subtitles.size() > 0 );
+    QList<QAction*> actions = subtitlesGroup->actions();
+    qDeleteAll(actions.begin(), actions.end());
+
+    if ( m_subtitles.size() == 0 )
+        return;
+    
+    QAction *act = subtitlesGroup->addAction("subtitleAuto");
+    act->setText(i18n("Auto Select Subtitle"));
+    act->setCheckable(true);
+    subtitlesMenu->addAction(act);
+
+    subtitlesMenu->addSeparator();
+    
+    foreach( Phonon::SubtitleDescription sd, m_subtitles ) {
+        act = subtitlesGroup->addAction(sd.name());
+        act->setCheckable(true);
+        subtitlesMenu->addAction(act);
+    }
+
+    setSubtitle(act); // set to last subtitle
+}
+
+void MainWindow::setSubtitle(QAction *act)
+{
+    int idx = subtitlesGroup->actions().indexOf(act);
+    if ( idx == 0 ) {
+        idx = m_subtitles.size()-1;
+    } else if ( idx > 0 ) {
+        idx -= 1;
+    }
+
+    mediaController->setCurrentSubtitle(m_subtitles[idx]);
+    qDebug() << "Loopy: change subtitle to " << m_subtitles[idx].name();
 }
 
 /////////////////////////////////////////////////////
