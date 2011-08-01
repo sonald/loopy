@@ -26,6 +26,8 @@ MainWindow::MainWindow() : KXmlGuiWindow()
 
     connect(mediaObject, SIGNAL(stateChanged(Phonon::State, Phonon::State)),
             this, SLOT(mediaStateChanged(Phonon::State, Phonon::State)));
+    connect(mediaObject, SIGNAL(hasVideoChanged(bool)),
+            this, SLOT(hasVideoChanged(bool)));
     connect(mediaObject, SIGNAL(currentSourceChanged(const Phonon::MediaSource &)),
             this, SLOT(sourceChanged(const Phonon::MediaSource &)));
     connect(mediaObject, SIGNAL(aboutToFinish()), this, SLOT(aboutToFinish()));
@@ -550,6 +552,7 @@ void MainWindow::openUrls(const QList<KUrl> &urls)
     
     mediaObject->setCurrentSource(hiddenPlayList.at(0));
     mediaObject->play();
+    qDebug() <<"Loopy: start to play";
 }
 
 void MainWindow::addUrls(const QList<KUrl> &urls)
@@ -957,8 +960,8 @@ void MainWindow::resizeToVideo()
 ////////////////////////////////////////////////////
 void MainWindow::mediaStateChanged(Phonon::State newState, Phonon::State /* oldState */)
 {
-    m_videoWidget->setVisible(mediaObject->hasVideo());
-    m_infoLabel->setVisible(!mediaObject->hasVideo());
+    // m_videoWidget->setVisible(mediaObject->hasVideo());
+    // m_infoLabel->setVisible(!mediaObject->hasVideo());
 
     switch (newState) {
     case Phonon::ErrorState:
@@ -1003,6 +1006,13 @@ void MainWindow::mediaStateChanged(Phonon::State newState, Phonon::State /* oldS
     default:
         ;
     }
+}
+
+void MainWindow::hasVideoChanged(bool hasVideo)
+{
+    qDebug() << "Loopy: hasVideo =" << (hasVideo?"true":"false");
+    m_videoWidget->setVisible(hasVideo);
+    m_infoLabel->setVisible(!hasVideo);
 }
 
 void MainWindow::updateCaption()

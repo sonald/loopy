@@ -101,6 +101,7 @@ private slots:
 
     void mediaStateChanged(Phonon::State newState, Phonon::State oldState);
     void sourceChanged(const Phonon::MediaSource &source);
+    void hasVideoChanged(bool hasVideo);
     void aboutToFinish();
     void finished();
     void updateCaption();
