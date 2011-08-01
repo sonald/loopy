@@ -131,6 +131,7 @@ private:
     Phonon::AudioOutput *audioOutput;
     Phonon::MediaController *mediaController;
     QList<Phonon::SubtitleDescription> m_subtitles;
+    Phonon::SubtitleDescription m_currentSubtitle;
     
     KSystemTrayIcon *m_trayIcon;
 
@@ -164,7 +165,9 @@ private:
     void setupActions();
     void setupFullScreenToolBar();
     void createTrayIcon();
-
+    void pushUrls(const QList<KUrl>&);
+    void pushUrl(const KUrl&);
+    
     bool isMainToolBar;
     bool isPlayListDock;
     int titleCount;//DVD

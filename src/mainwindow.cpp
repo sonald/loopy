@@ -101,7 +101,6 @@ MainWindow::MainWindow() : KXmlGuiWindow()
     audioOutput->setVolume(qreal(KConfigGroup(KGlobal::config(), "Audio").
                                  readEntry("Volume", 1.0)));
 
-    updateSubtitlesMenu();
     updateTitleMenu();
     updateChapterMenu();
     updateAngleMenu();
@@ -547,22 +546,8 @@ void MainWindow::openUrls(const QList<KUrl> &urls)
     }
     m_playlistDock->deleteAll();
     mediaObject->clearQueue();
-
-    Q_FOREACH(const KUrl &url, urls) {
-
-        Phonon::MediaSource source(url);
-
-        QString title;
-        title = source.url().toString();
-        title = (title.right(title.length() - title.lastIndexOf('/') - 1));
-
-        QListWidgetItem *titleItem = new QListWidgetItem(title);
-        titleItem->setIcon(KIcon("media-playback-start"));
-        int currentRow = m_playlistDock->visiblePlayList->count();
-        m_playlistDock->visiblePlayList->insertItem(currentRow, titleItem);
-
-        hiddenPlayList.append(source);
-    }
+    pushUrls(urls);
+    
     mediaObject->setCurrentSource(hiddenPlayList.at(0));
     mediaObject->play();
 }
@@ -572,27 +557,42 @@ void MainWindow::addUrls(const QList<KUrl> &urls)
     if (urls.isEmpty()) {
         return;
     }
-
-    Q_FOREACH(const KUrl &url, urls) {
-
-        Phonon::MediaSource source(url);
-
-        QString title;
-        title = source.url().toString();
-        title = (title.right(title.length() - title.lastIndexOf('/') - 1));
-
-        QListWidgetItem *titleItem = new QListWidgetItem(title);
-        titleItem->setIcon(KIcon("media-playback-start"));
-        int currentRow = m_playlistDock->visiblePlayList->count();
-        m_playlistDock->visiblePlayList->insertItem(currentRow, titleItem);
-
-        hiddenPlayList.append(source);
-    }
-
+    pushUrls(urls);
+    
     if (!hiddenPlayList.isEmpty() && mediaObject->state() != Phonon::PlayingState) {
         mediaObject->setCurrentSource(hiddenPlayList.at(0));
         mediaObject->play();
     }
+}
+
+void MainWindow::pushUrls(const QList<KUrl> &urls)
+{
+    Q_FOREACH(const KUrl &url, urls) {
+        pushUrl( url );
+    }
+}
+
+void MainWindow::pushUrl(const KUrl &url)
+{
+    QString title;
+    if (url.isLocalFile()) {
+        title = url.toLocalFile();
+        title = (title.right(title.length() - title.lastIndexOf('/') - 1));
+    } else {
+        title = url.prettyUrl();
+    }
+        
+    QListWidgetItem *titleItem = new QListWidgetItem(title);
+    titleItem->setIcon(KIcon("media-playback-start"));
+    int currentRow = m_playlistDock->visiblePlayList->count();
+    m_playlistDock->visiblePlayList->insertItem(currentRow, titleItem);
+
+    if (url.isLocalFile()) {
+        hiddenPlayList.append( Phonon::MediaSource(url.toLocalFile()) );
+    } else {
+        hiddenPlayList.append( Phonon::MediaSource(url) );
+    }
+
 }
 
 void MainWindow::openUrl(const KUrl &url)
@@ -610,18 +610,7 @@ void MainWindow::openUrl(const KUrl &url)
 
     m_playlistDock->deleteAll();
     mediaObject->clearQueue();
-
-    Phonon::MediaSource source(url);
-    QString title;
-    title = source.url().toString();
-    title = (title.right(title.length() - title.lastIndexOf('/') - 1));
-
-    QListWidgetItem *titleItem = new QListWidgetItem(title);
-    titleItem->setIcon(KIcon("media-playback-start"));
-    int currentRow = m_playlistDock->visiblePlayList->count();
-    m_playlistDock->visiblePlayList->insertItem(currentRow, titleItem);
-
-    hiddenPlayList.append(source);
+    pushUrl( url );
     mediaObject->setCurrentSource(hiddenPlayList.at(0));
     mediaObject->play();
 }
@@ -1067,6 +1056,7 @@ void MainWindow::finished()//Repeat file/playlist
 
 void MainWindow::updateSubtitlesMenu()
 {
+    qDebug() << "Loopy: available subtitles changed";
     QMenu *subtitlesMenu = static_cast<QMenu*>(guiFactory()->container("subtitles", this));
 
     m_subtitles = mediaController->availableSubtitles();
@@ -1076,10 +1066,11 @@ void MainWindow::updateSubtitlesMenu()
 
     if ( m_subtitles.size() == 0 )
         return;
-    
+
     QAction *act = subtitlesGroup->addAction("subtitleAuto");
     act->setText(i18n("Auto Select Subtitle"));
     act->setCheckable(true);
+    QAction *focus_act = act;
     subtitlesMenu->addAction(act);
 
     subtitlesMenu->addSeparator();
@@ -1087,10 +1078,14 @@ void MainWindow::updateSubtitlesMenu()
     foreach( Phonon::SubtitleDescription sd, m_subtitles ) {
         act = subtitlesGroup->addAction(sd.name());
         act->setCheckable(true);
+        if ( sd == m_currentSubtitle ) {
+            focus_act = act;
+        }
         subtitlesMenu->addAction(act);
     }
 
-    setSubtitle(act); // set to last subtitle
+    focus_act->setChecked(true);
+    setSubtitle(focus_act);
 }
 
 void MainWindow::setSubtitle(QAction *act)
