@@ -107,6 +107,8 @@ private slots:
     void updateCaption();
     void updateSubtitlesMenu();
     void setSubtitle(QAction*);
+    void loadSubtitle();
+    
     void updateTitleMenu();//DVD
     void updateChapterMenu();//DVD
     void updateAngleMenu();//DVD
@@ -132,8 +134,7 @@ private:
     Phonon::AudioOutput *audioOutput;
     Phonon::MediaController *mediaController;
     QList<Phonon::SubtitleDescription> m_subtitles;
-    Phonon::SubtitleDescription m_currentSubtitle;
-    
+     
     KSystemTrayIcon *m_trayIcon;
 
     VideoWidget *m_videoWidget;
@@ -153,7 +154,7 @@ private:
     QTimer *disableScreenSaverTimer;
 
     QActionGroup *subtitlesGroup;
-     QActionGroup *titleGroup;//DVD
+    QActionGroup *titleGroup;//DVD
     QActionGroup *chapterGroup;//DVD
     QActionGroup *angleGroup;//DVD
 
@@ -168,6 +169,7 @@ private:
     void createTrayIcon();
     void pushUrls(const QList<KUrl>&);
     void pushUrl(const KUrl&);
+    QStringList getSupportedMimeTypes();
     
     bool isMainToolBar;
     bool isPlayListDock;

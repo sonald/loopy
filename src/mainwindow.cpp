@@ -479,24 +479,12 @@ void MainWindow::parseArgs()
 
 void MainWindow::openFile()
 {
-    //FIXME ->some backends don't return all useable mimetypes
-    //QStringList mimeTypes = Phonon::BackendCapabilities::availableMimeTypes();
-
     if (Settings::alwaysEnqueue()) {
         addFile();
         return;
     }
 
-    QStringList mimeTypes;
-
-    KMimeType::List mimeList = KMimeType::allMimeTypes();
-
-    Q_FOREACH(KMimeType::Ptr mime, mimeList) {
-        if (mime->name().startsWith("video/")) {
-            mimeTypes << mime->name();
-        }
-    }
-
+    QStringList mimeTypes = getSupportedMimeTypes();
     QList<KUrl> urls = KFileDialog::getOpenUrls(KUrl("kfiledialog:///loopy")
                        , mimeTypes.join(" ")
                        , this
@@ -509,19 +497,7 @@ void MainWindow::openFile()
 
 void MainWindow::addFile()
 {
-    //FIXME
-    //QStringList mimeTypes = Phonon::BackendCapabilities::availableMimeTypes();
-
-    QStringList mimeTypes;
-
-    KMimeType::List mimeList = KMimeType::allMimeTypes();
-
-    Q_FOREACH(KMimeType::Ptr mime, mimeList) {
-        if (mime->name().startsWith("video/")) {
-            mimeTypes << mime->name();
-        }
-    }
-
+    QStringList mimeTypes = getSupportedMimeTypes();
     QList<KUrl> urls = KFileDialog::getOpenUrls(KUrl("kfiledialog:///loopy")
                        , mimeTypes.join(" ")
                        , this
@@ -530,6 +506,25 @@ void MainWindow::addFile()
     if (!urls.isEmpty()) {
         addUrls(urls);
     }
+}
+
+QStringList MainWindow::getSupportedMimeTypes()
+{
+    QStringList mimeTypes =
+        Phonon::BackendCapabilities::availableMimeTypes().filter("video/");
+
+    if (mimeTypes.size() == 0) {
+        KMimeType::List mimeList = KMimeType::allMimeTypes();
+
+        Q_FOREACH(KMimeType::Ptr mime, mimeList) {
+            if (mime->name().startsWith("video/")) {
+                mimeTypes << mime->name();
+            }
+        }
+    }
+
+    qDebug() << "Loopy: " << mimeTypes;
+    return mimeTypes;
 }
 
 void MainWindow::openUrl()
@@ -595,7 +590,6 @@ void MainWindow::pushUrl(const KUrl &url)
     } else {
         hiddenPlayList.append( Phonon::MediaSource(url) );
     }
-
 }
 
 void MainWindow::openUrl(const KUrl &url)
@@ -1070,6 +1064,8 @@ void MainWindow::updateSubtitlesMenu()
     QMenu *subtitlesMenu = static_cast<QMenu*>(guiFactory()->container("subtitles", this));
 
     m_subtitles = mediaController->availableSubtitles();
+    Phonon::SubtitleDescription currentSubtitle = mediaController->currentSubtitle();
+    
     subtitlesMenu->setEnabled( m_subtitles.size() > 0 );
     QList<QAction*> actions = subtitlesGroup->actions();
     qDeleteAll(actions.begin(), actions.end());
@@ -1077,7 +1073,11 @@ void MainWindow::updateSubtitlesMenu()
     if ( m_subtitles.size() == 0 )
         return;
 
-    QAction *act = subtitlesGroup->addAction("subtitleAuto");
+    QAction *act = subtitlesGroup->addAction("externalSubtitle");
+    act->setText(i18n("Load External Subtitle..."));
+    subtitlesMenu->addAction( act );
+
+    act = subtitlesGroup->addAction("subtitleAuto");
     act->setText(i18n("Auto Select Subtitle"));
     act->setCheckable(true);
     QAction *focus_act = act;
@@ -1088,7 +1088,7 @@ void MainWindow::updateSubtitlesMenu()
     foreach( Phonon::SubtitleDescription sd, m_subtitles ) {
         act = subtitlesGroup->addAction(sd.name());
         act->setCheckable(true);
-        if ( sd == m_currentSubtitle ) {
+        if ( sd == currentSubtitle ) {
             focus_act = act;
         }
         subtitlesMenu->addAction(act);
@@ -1101,14 +1101,51 @@ void MainWindow::updateSubtitlesMenu()
 void MainWindow::setSubtitle(QAction *act)
 {
     int idx = subtitlesGroup->actions().indexOf(act);
-    if ( idx == 0 ) {
-        idx = m_subtitles.size()-1;
+    if ( idx == 0 ) { // load external
+        loadSubtitle();
+        return;
+        
     } else if ( idx > 0 ) {
-        idx -= 1;
+        if ( idx == 1 )
+            idx = m_subtitles.size()-1;
+        else
+            idx -= 2;
     }
 
+    if ( mediaController->currentSubtitle() == m_subtitles[idx] )
+        return;
+    
+    qDebug() << "Loopy: change subtitle to " << m_subtitles[idx].name();    
     mediaController->setCurrentSubtitle(m_subtitles[idx]);
-    qDebug() << "Loopy: change subtitle to " << m_subtitles[idx].name();
+}
+
+void MainWindow::loadSubtitle()
+{
+    qDebug() << "Loopy: load external subtitle ";
+
+    QStringList mimeTypes;
+    mimeTypes << "application/x-subrip" << "text/plain" << "video/subtitle";
+
+    KUrl url = KFileDialog::getOpenUrl(KUrl("kfiledialog:///loopy")
+                                       , mimeTypes.join(" ")
+                                       , this
+                                       , i18n("Select subtitle file"));
+
+    if (url.isValid()) {
+        QHash<QByteArray, QVariant> props;
+        props.insert("type", "file");
+        props.insert("name", url.toLocalFile());
+        //FIXME: currently there is no way to find the next available index, so
+        //guess an unused one
+        int max = m_subtitles.size()-1;
+        foreach( const Phonon::SubtitleDescription& sd, m_subtitles ) {
+            qDebug() << sd.name() << sd.index();
+            max = qMax( max, sd.index() );
+        }
+        // qDebug() << "Loopy: guest next index = " << max+1;
+        Phonon::SubtitleDescription sub(max+1, props);
+        mediaController->setCurrentSubtitle(sub);
+    }
 }
 
 /////////////////////////////////////////////////////
