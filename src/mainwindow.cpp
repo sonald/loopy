@@ -1123,13 +1123,23 @@ void MainWindow::loadSubtitle()
 {
     qDebug() << "Loopy: load external subtitle ";
 
-    QStringList mimeTypes;
-    mimeTypes << "application/x-subrip" << "text/plain" << "video/subtitle";
+    // QStringList mimeTypes;
+    // mimeTypes << "application/x-subrip" << "text/plain";
+	//See http://en.wikipedia.org/wiki/Subtitle_(captioning)#Subtitle_formats
+    QStringList suffixes = QStringList() << "aqt" << "sub" << "rt" << "smi"
+                                         << "sami" << "ssf" << "srt" << "ssa"
+                                         << "ass" << "usf" << "utf" << "txt";
 
-    KUrl url = KFileDialog::getOpenUrl(KUrl("kfiledialog:///loopy")
-                                       , mimeTypes.join(" ")
-                                       , this
-                                       , i18n("Select subtitle file"));
+    QString filter;
+    foreach(const QString& suf, suffixes) {
+        filter += " *." + suf;
+    }
+    filter = tr("%1|Subtitle\n*.*|All Files").arg(filter);
+
+    KUrl url = KFileDialog::getOpenFileName(KUrl("kfiledialog:///loopy")
+                                            , filter
+                                            , this
+                                            , i18n("Select subtitle file"));
 
     if (url.isValid()) {
         QHash<QByteArray, QVariant> props;
@@ -1139,10 +1149,8 @@ void MainWindow::loadSubtitle()
         //guess an unused one
         int max = m_subtitles.size()-1;
         foreach( const Phonon::SubtitleDescription& sd, m_subtitles ) {
-            qDebug() << sd.name() << sd.index();
             max = qMax( max, sd.index() );
         }
-        // qDebug() << "Loopy: guest next index = " << max+1;
         Phonon::SubtitleDescription sub(max+1, props);
         mediaController->setCurrentSubtitle(sub);
     }
