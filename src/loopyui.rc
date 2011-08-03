@@ -41,6 +41,7 @@
       </Menu>
       <Menu name="subtitles">
       <text>&amp;Subtitles</text>
+        <Action name="externalSubtitle" />
       </Menu>
       <Menu name="titlemenu">
       <text>&amp;Title</text>

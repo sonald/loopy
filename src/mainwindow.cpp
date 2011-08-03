@@ -12,6 +12,12 @@
 
 #include "mainwindow.h"
 
+static inline bool isPlayable(const Phonon::MediaSource::Type t)
+{
+    return t != Phonon::MediaSource::Invalid && t != Phonon::MediaSource::Empty;
+}
+
+
 MainWindow::MainWindow() : KXmlGuiWindow()
 {
     //Phonon
@@ -1066,17 +1072,18 @@ void MainWindow::updateSubtitlesMenu()
     m_subtitles = mediaController->availableSubtitles();
     Phonon::SubtitleDescription currentSubtitle = mediaController->currentSubtitle();
     
-    subtitlesMenu->setEnabled( m_subtitles.size() > 0 );
+    // subtitlesMenu->setEnabled( m_subtitles.size() > 0 );
     QList<QAction*> actions = subtitlesGroup->actions();
     qDeleteAll(actions.begin(), actions.end());
 
-    if ( m_subtitles.size() == 0 )
-        return;
-
     QAction *act = subtitlesGroup->addAction("externalSubtitle");
     act->setText(i18n("Load External Subtitle..."));
-    subtitlesMenu->addAction( act );
-
+    act->setEnabled( isPlayable(mediaObject->currentSource().type()) );
+    subtitlesMenu->addAction(act);
+    
+    if ( m_subtitles.size() == 0 )
+        return;
+    
     act = subtitlesGroup->addAction("subtitleAuto");
     act->setText(i18n("Auto Select Subtitle"));
     act->setCheckable(true);
