@@ -945,6 +945,9 @@ void MainWindow::scaleChanged(QAction *act)
 
 void MainWindow::subtitleChanged(QAction *act)
 {
+    if (!isPlayable(mediaObject->currentSource().type())) {
+        return;
+    }
     setSubtitle(act);
 }
 
@@ -1069,6 +1072,11 @@ void MainWindow::updateSubtitlesMenu()
     qDebug() << "Loopy: available subtitles changed";
     QMenu *subtitlesMenu = static_cast<QMenu*>(guiFactory()->container("subtitles", this));
 
+    if (!isPlayable(mediaObject->currentSource().type())) {
+        m_subtitles.clear();
+        return;
+    }
+    
     m_subtitles = mediaController->availableSubtitles();
     Phonon::SubtitleDescription currentSubtitle = mediaController->currentSubtitle();
     
