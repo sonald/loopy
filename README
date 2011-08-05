@@ -2,3 +2,13 @@ loopy a simple KDE4 media player
 
 recent plans is to add subtitle support. phonon-vlc( version 0.4 ) or 
 phonon-mplayer backend is fine, phonon-gstreamer needs some time.
+
+new features:
+* display autodetected subtitiles ( need backend support )
+* allow to load external subtitle
+* basic audio channel ( need backend support)
+
+recent plans:
+* remember user loaded subtitles
+* auto download subtitles from internet
+* effects ( backend support)
