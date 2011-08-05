@@ -108,6 +108,7 @@ private slots:
     void updateSubtitlesMenu();
     void setSubtitle(QAction*);
     void loadSubtitle();
+    void updateAudioChannelsMenu();
     
     void updateTitleMenu();//DVD
     void updateChapterMenu();//DVD
@@ -122,6 +123,7 @@ private slots:
     void scaleChanged(QAction *);
     void aspectChanged(QAction *);
     void subtitleChanged(QAction *);
+    void channelChanged(QAction *);
     void resizeToVideo();
 
     void fullscreen(bool isFullScreen);
@@ -134,7 +136,8 @@ private:
     Phonon::AudioOutput *audioOutput;
     Phonon::MediaController *mediaController;
     QList<Phonon::SubtitleDescription> m_subtitles;
-     
+    QList<Phonon::AudioChannelDescription> m_audioChannels;
+    
     KSystemTrayIcon *m_trayIcon;
 
     VideoWidget *m_videoWidget;
@@ -154,6 +157,7 @@ private:
     QTimer *disableScreenSaverTimer;
 
     QActionGroup *subtitlesGroup;
+    QActionGroup *channelGroup;
     QActionGroup *titleGroup;//DVD
     QActionGroup *chapterGroup;//DVD
     QActionGroup *angleGroup;//DVD

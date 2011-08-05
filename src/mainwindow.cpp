@@ -292,6 +292,14 @@ void MainWindow::setupActions()
     decreaseVolumeAction->setShortcut(KShortcut(Qt::Key_Minus, Qt::Key_VolumeDown));
     connect(decreaseVolumeAction, SIGNAL(triggered()), this, SLOT(decreaseVolume()));
 
+    /// Audio Channels
+    channelGroup = new QActionGroup(this);
+    connect(channelGroup, SIGNAL(triggered(QAction *)), this, SLOT(channelChanged(QAction *)));
+    channelGroup->setExclusive(true);
+    connect( mediaController, SIGNAL(availableAudioChannelsChanged()),
+             this, SLOT(updateAudioChannelsMenu()));
+
+    
     //Settings menu
     KAction* playListAction = actionCollection()->addAction("playListAction");
     playListAction->setText(i18n("Playlist"));
@@ -943,6 +951,13 @@ void MainWindow::scaleChanged(QAction *act)
         m_videoWidget->setScaleMode(Phonon::VideoWidget::FitInView);
 }
 
+void MainWindow::channelChanged(QAction *act)
+{
+    int idx = channelGroup->actions().indexOf(act);
+    qDebug() << "Loopy: change audio channel to " << m_audioChannels[idx].name();
+    mediaController->setCurrentAudioChannel(m_audioChannels[idx]);
+}
+
 void MainWindow::subtitleChanged(QAction *act)
 {
     if (!isPlayable(mediaObject->currentSource().type())) {
@@ -1065,6 +1080,47 @@ void MainWindow::finished()//Repeat file/playlist
         mediaObject->seek(0);
         mediaObject->play();
     }
+}
+
+void MainWindow::updateAudioChannelsMenu()
+{
+    qDebug() << "Loopy: update audio channels";
+    QMenu *channelMenu = static_cast<QMenu*>(guiFactory()->container("channelmenu", this));
+    if (!channelMenu) {
+        m_audioChannels.clear();
+        return;
+    }
+    
+    if (!isPlayable(mediaObject->currentSource().type())) {
+        m_audioChannels.clear();
+        return;
+    }
+
+    Phonon::AudioChannelDescription currentChannel =
+        mediaController->currentAudioChannel();
+    m_audioChannels = mediaController->availableAudioChannels();
+    
+    QList<QAction*> actions = channelGroup->actions();
+    qDeleteAll(actions.begin(), actions.end());
+    if (m_audioChannels.size() == 0)
+        return;
+
+    QAction *focus_act = NULL;
+    foreach( Phonon::AudioChannelDescription channel, m_audioChannels ) {
+        QAction *act = channelGroup->addAction(channel.name());
+        qDebug() << channel;
+        act->setCheckable(true);
+        if ( channel == currentChannel ) {
+            focus_act = act;
+        }
+        channelMenu->addAction(act);
+    }
+
+    if (!focus_act) { // ususally, the first channel is mute
+        focus_act = channelGroup->actions().last();
+    }
+    focus_act->setChecked(true);
+    channelChanged(focus_act);
 }
 
 void MainWindow::updateSubtitlesMenu()
