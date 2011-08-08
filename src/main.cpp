@@ -41,15 +41,21 @@ int LoopyApplication::newInstance()
 int main(int argc, char *argv[])
 {
     KAboutData aboutData("loopy", "loopy",
-                         ki18n("Loopy"), "0.5.3",
+                         ki18n("Loopy"), "0.5.4",
                          ki18n("Slim, themeable video player, based on the KDE phonon libraries."),
                          KAboutData::License_GPL_V2,
-                         ki18n("Copyright (c) 2010 MonsterMagnet"));
+                         ki18n("Copyright (c) 2010 MonsterMagnet\n"
+                               "Copyright (c) 2011 Sian Cao"));
 
     aboutData.setProgramIconName("applications-multimedia");
-    aboutData.addAuthor(ki18n("MonsterMagnet"), ki18n("Original Developer/Maintainer"), "monstermagnet@rocketmail.com");
-    aboutData.addCredit(ki18n("The Kaffeine Developers"),ki18n("Single instance, DVD support and a lot more"));
-    aboutData.addCredit(ki18n("The Gwenview Developers"),ki18n("Fullscreenbar and qss stylesheet"));
+    aboutData.addAuthor(ki18n("MonsterMagnet"), ki18n("Original Developer/Maintainer"),
+                        "monstermagnet@rocketmail.com");
+    aboutData.addAuthor(ki18n("Sian Cao"), ki18n("Author and maintainer"), "sycao@redflag-linux.com");
+    
+    aboutData.addCredit(ki18n("The Kaffeine Developers"),
+                        ki18n("Single instance, DVD support and a lot more"));
+    aboutData.addCredit(ki18n("The Gwenview Developers"),
+                        ki18n("Fullscreenbar and qss stylesheet"));
 
     KCmdLineArgs::init(argc, argv, &aboutData);
     KCmdLineArgs::addCmdLineOptions(MainWindow::cmdLineOptions());
