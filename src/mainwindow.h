@@ -127,7 +127,8 @@ private slots:
     void resizeToVideo();
 
     void fullscreen(bool isFullScreen);
-
+    void captureImage();
+    
     //-->options.cpp
     void showSettings();
     void saveSettings();

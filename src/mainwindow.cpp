@@ -9,6 +9,8 @@
 
 #include <QDBusInterface>
 #include <QVBoxLayout>
+#include <QImage>
+#include <QPainter>
 
 #include "mainwindow.h"
 
@@ -273,6 +275,14 @@ void MainWindow::setupActions()
             this, SLOT(angleCountChanged(int)));
     connect(mediaController, SIGNAL(angleChanged(int)), this, SLOT(updateAngleMenu()));
 
+    // misc actions
+    KAction* captureImageAct = actionCollection()->addAction("captureImage");
+    captureImageAct->setText(i18n("Capture Image"));
+    //captureImageAct->setIcon
+    captureImageAct->setShortcut(KShortcut("Ctrl+S"));
+    connect(captureImageAct, SIGNAL(triggered(bool)), this, SLOT(captureImage()));
+
+    
     //Audio menu
     KAction* muteAction = actionCollection()->addAction("mute");
     muteAction->setText(i18n("Mute"));
@@ -1411,4 +1421,25 @@ bool MainWindow::isCurrentlyLocalMedia()
 {
     const Phonon::MediaSource& media = mediaObject->currentSource();
     return media.type() == Phonon::MediaSource::LocalFile;
+}
+
+void MainWindow::captureImage()
+{
+    if (!m_videoWidget || !m_videoWidget->isVisible())
+        return;
+
+    //FIXME: snapshot() won't work, and grabWidget always return plain blank
+    //image, so right now use grabWindow as a not-so-good replacement.
+    QImage offscreen = m_videoWidget->snapshot();
+    if (offscreen.isNull()) {
+        qDebug() << "Loopy: capture snapshot failed";
+        // const QPixmap& snapshot = QPixmap::grabWidget(m_videoWidget);
+        const QPixmap& snapshot = QPixmap::grabWindow(m_videoWidget->winId());
+        offscreen = snapshot.toImage();
+    }
+    
+    char tmpl[] = "loopy_snapshotXXXXXX";
+    QString tmpfile = QDir::homePath() + "/" + mktemp(tmpl) + ".png";
+    if (offscreen.save(tmpfile))
+        qDebug() << "Loopy: captured and saved " << tmpfile;
 }

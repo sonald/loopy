@@ -54,6 +54,7 @@
       </Menu>
       <Separator />
       <Action name="fullscreen" />
+      <Action name="captureImage" />
     </Menu>
   
     <Menu name="audio" >
