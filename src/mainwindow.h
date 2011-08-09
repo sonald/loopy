@@ -174,12 +174,16 @@ private:
     void pushUrls(const QList<KUrl>&);
     void pushUrl(const KUrl&);
     QStringList getSupportedMimeTypes();
+    void appendSubtitleHistory(const QString& localFile);
+    QStringList loadSubtitleHistory();
     
     bool isMainToolBar;
     bool isPlayListDock;
     int titleCount;//DVD
     int chapterCount;//DVD
     int angleCount;//DVD
+
+    bool isCurrentlyLocalMedia();
 
 };
 

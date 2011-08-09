@@ -112,6 +112,7 @@ MainWindow::MainWindow() : KXmlGuiWindow()
     updateTitleMenu();
     updateChapterMenu();
     updateAngleMenu();
+    updateSubtitlesMenu();
 }
 
 MainWindow::~MainWindow()
@@ -1144,6 +1145,11 @@ void MainWindow::updateSubtitlesMenu()
     act->setText(i18n("Load External Subtitle..."));
     act->setEnabled( isPlayable(mediaObject->currentSource().type()) );
     subtitlesMenu->addAction(act);
+
+    act = subtitlesGroup->addAction("subtitleLast");
+    act->setText(i18n("Last External Subtitle"));
+    act->setEnabled( isPlayable(mediaObject->currentSource().type()) );
+    subtitlesMenu->addAction(act);
     
     if ( m_subtitles.size() == 0 )
         return;
@@ -1164,7 +1170,7 @@ void MainWindow::updateSubtitlesMenu()
         }
         subtitlesMenu->addAction(act);
     }
-
+    
     focus_act->setChecked(true);
     setSubtitle(focus_act);
 }
@@ -1172,15 +1178,35 @@ void MainWindow::updateSubtitlesMenu()
 void MainWindow::setSubtitle(QAction *act)
 {
     int idx = subtitlesGroup->actions().indexOf(act);
-    if ( idx == 0 ) { // load external
+    if (idx == 0) { // load external
         loadSubtitle();
         return;
+
+    } else if (idx == 1) {
+        QStringList histories = loadSubtitleHistory();
+        if (histories.isEmpty())
+            return;
+
+        int max = m_subtitles.size()-1;
+        foreach( const Phonon::SubtitleDescription& sd, m_subtitles ) {
+            max = qMax( max, sd.index() );
+            if (histories[0] == sd.property("name").toString()) {
+                return;
+            }
+        }
         
-    } else if ( idx > 0 ) {
-        if ( idx == 1 )
+        QHash<QByteArray, QVariant> props;
+        props.insert("type", "file");
+        props.insert("name", histories[0]);
+        Phonon::SubtitleDescription sub(max+1, props);
+        mediaController->setCurrentSubtitle(sub);
+        return;
+        
+    } else if ( idx > 1 ) {
+        if ( idx == 2 )
             idx = m_subtitles.size()-1;
         else
-            idx -= 2;
+            idx -= 3;
     }
 
     if ( mediaController->currentSubtitle() == m_subtitles[idx] )
@@ -1194,8 +1220,6 @@ void MainWindow::loadSubtitle()
 {
     qDebug() << "Loopy: load external subtitle ";
 
-    // QStringList mimeTypes;
-    // mimeTypes << "application/x-subrip" << "text/plain";
 	//See http://en.wikipedia.org/wiki/Subtitle_(captioning)#Subtitle_formats
     QStringList suffixes = QStringList() << "aqt" << "sub" << "rt" << "smi"
                                          << "sami" << "ssf" << "srt" << "ssa"
@@ -1216,15 +1240,39 @@ void MainWindow::loadSubtitle()
         QHash<QByteArray, QVariant> props;
         props.insert("type", "file");
         props.insert("name", url.toLocalFile());
-        //FIXME: currently there is no way to find the next available index, so
-        //guess an unused one
+
         int max = m_subtitles.size()-1;
         foreach( const Phonon::SubtitleDescription& sd, m_subtitles ) {
             max = qMax( max, sd.index() );
+            if (url.toLocalFile() == sd.property("name").toString()) {
+                return;
+            }
         }
+
+        if (isCurrentlyLocalMedia()) {
+            appendSubtitleHistory(url.toLocalFile());
+        }
+        
         Phonon::SubtitleDescription sub(max+1, props);
         mediaController->setCurrentSubtitle(sub);
     }
+}
+
+void MainWindow::appendSubtitleHistory(const QString& localFile)
+{
+    QString media( mediaObject->currentSource().url().toLocalFile() );
+    QStringList histories = loadSubtitleHistory();
+
+    if (!histories.contains(localFile)) {
+        histories << localFile;
+        KConfigGroup(KGlobal::config(), "Subtitles").writeEntry(media, histories);
+    }
+}
+
+QStringList MainWindow::loadSubtitleHistory()
+{
+    QString media( mediaObject->currentSource().url().toLocalFile() );
+    return KConfigGroup(KGlobal::config(), "Subtitles").readEntry(media, QStringList());
 }
 
 /////////////////////////////////////////////////////
@@ -1357,4 +1405,10 @@ void MainWindow::updateAngleMenu()
 void MainWindow::changeAngle(QAction *action)
 {
     mediaController->setCurrentAngle(angleGroup->actions().indexOf(action) + 1);
+}
+
+bool MainWindow::isCurrentlyLocalMedia()
+{
+    const Phonon::MediaSource& media = mediaObject->currentSource();
+    return media.type() == Phonon::MediaSource::LocalFile;
 }
