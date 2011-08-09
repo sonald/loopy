@@ -277,7 +277,7 @@ void MainWindow::setupActions()
 
     // misc actions
     KAction* captureImageAct = actionCollection()->addAction("captureImage");
-    captureImageAct->setText(i18n("Capture Image"));
+    captureImageAct->setText(i18n("Snapshot"));
     //captureImageAct->setIcon
     captureImageAct->setShortcut(KShortcut("Ctrl+S"));
     connect(captureImageAct, SIGNAL(triggered(bool)), this, SLOT(captureImage()));
