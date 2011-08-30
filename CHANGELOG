@@ -1,7 +1,10 @@
 ----------------
 Loopy Changelog:
 ----------------
-
+Version 0.5.4
+- subtitle support
+- stay on top
+	
 Version 0.5.3
 
 - Fixed strange messageBox behaviour
