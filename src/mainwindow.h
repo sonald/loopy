@@ -109,6 +109,7 @@ private slots:
     void setSubtitle(QAction*);
     void loadSubtitle();
     void updateAudioChannelsMenu();
+    void updateStayontopMenu();
     
     void updateTitleMenu();//DVD
     void updateChapterMenu();//DVD
@@ -125,7 +126,8 @@ private slots:
     void subtitleChanged(QAction *);
     void channelChanged(QAction *);
     void resizeToVideo();
-
+    void stayontopChanged(QAction*);
+    
     void fullscreen(bool isFullScreen);
     void captureImage();
     
@@ -134,6 +136,13 @@ private slots:
     void saveSettings();
 
 private:
+    enum StayontopPolicy 
+    {
+        SP_Never,
+        SP_Always,
+        SP_OnDemand
+    };
+    
     Phonon::AudioOutput *audioOutput;
     Phonon::MediaController *mediaController;
     QList<Phonon::SubtitleDescription> m_subtitles;
@@ -157,6 +166,7 @@ private:
 
     QTimer *disableScreenSaverTimer;
 
+    QActionGroup *stayontopGroup;
     QActionGroup *subtitlesGroup;
     QActionGroup *channelGroup;
     QActionGroup *titleGroup;//DVD
@@ -184,8 +194,12 @@ private:
     int chapterCount;//DVD
     int angleCount;//DVD
 
+    StayontopPolicy m_stayontopPolicy;
+    Qt::WindowFlags m_originFlags;
+    
     bool isCurrentlyLocalMedia();
-
+    void setupActionGroup(QActionGroup* ag, const QStringList& actions);
+    void toggleStayontop(bool val);
 };
 
 #endif

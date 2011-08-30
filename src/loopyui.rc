@@ -55,6 +55,9 @@
       <Separator />
       <Action name="fullscreen" />
       <Action name="captureImage" />
+      <Menu name="stayontopmenu">
+        <text>&amp;Stay on top</text>
+      </Menu>
     </Menu>
   
     <Menu name="audio" >

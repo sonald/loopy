@@ -14,6 +14,8 @@
 
 #include "mainwindow.h"
 
+#define GET_MENU(name) static_cast<QMenu*>(guiFactory()->container(name, this))
+
 static inline bool isPlayable(const Phonon::MediaSource::Type t)
 {
     return t != Phonon::MediaSource::Invalid && t != Phonon::MediaSource::Empty;
@@ -115,6 +117,16 @@ MainWindow::MainWindow() : KXmlGuiWindow()
     updateChapterMenu();
     updateAngleMenu();
     updateSubtitlesMenu();
+    updateStayontopMenu();
+
+    m_originFlags = this->windowFlags();
+    m_stayontopPolicy = (StayontopPolicy)KConfigGroup(KGlobal::config(), "Video")
+        .readEntry("Stayontop", (int)SP_OnDemand);
+    QAction* sot = stayontopGroup->actions().at(m_stayontopPolicy);
+    if (sot) {
+        sot->setChecked(true);
+        stayontopChanged(sot);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -247,6 +259,15 @@ void MainWindow::setupActions()
     scaleActionCrop->setCheckable(true);
     scaleGroup->addAction(scaleActionCrop);
 
+    /// Stay on top
+    stayontopGroup = new QActionGroup(this);
+    connect(stayontopGroup, SIGNAL(triggered(QAction *)), this, SLOT(stayontopChanged(QAction *)));
+    QStringList acts;
+    acts << "stayontopNever" << i18n("Never")
+         << "stayontopAlways" << i18n("Always")
+         << "stayontopWhilePlaying" << i18n("While playing");
+    setupActionGroup(stayontopGroup, acts);
+    
     /// Subtitle
     subtitlesGroup = new QActionGroup(this);
     connect(subtitlesGroup, SIGNAL(triggered(QAction *)), this, SLOT(subtitleChanged(QAction *)));
@@ -356,6 +377,16 @@ void MainWindow::setupActions()
     reloadThemeAction->setText(i18n("Reload Theme (for theme development)"));
     reloadThemeAction->setIcon(KIcon("fill-color"));
     connect(reloadThemeAction, SIGNAL(triggered()), this, SLOT(reloadTheme()));
+}
+
+void MainWindow::setupActionGroup(QActionGroup* ag, const QStringList& actions)
+{
+    for (int i = 0; i < actions.size(); i += 2) {
+        QAction* act = actionCollection()->addAction(actions.at(i));
+        act->setText(actions.at(i+1));
+        act->setCheckable(true);
+        ag->addAction(act);
+    }
 }
 
 void MainWindow::setupFullScreenToolBar()
@@ -977,6 +1008,24 @@ void MainWindow::subtitleChanged(QAction *act)
     setSubtitle(act);
 }
 
+void MainWindow::stayontopChanged(QAction *act)
+{
+    if (act->objectName() == "stayontopNever") {
+        m_stayontopPolicy = SP_Never;
+        toggleStayontop(false);
+        
+    } else if (act->objectName() == "stayontopWhilePlaying") {
+        m_stayontopPolicy = SP_OnDemand;
+        toggleStayontop(mediaObject->state() == Phonon::PlayingState);
+        
+    } else if (act->objectName() == "stayontopAlways") {
+        m_stayontopPolicy = SP_Always;
+        toggleStayontop(true);
+    }
+    
+    KConfigGroup(KGlobal::config(), "Video").writeEntry("Stayontop", (int)m_stayontopPolicy);
+}
+
 void MainWindow::resizeToVideo()
 {
     if (!isFullScreen() && !isMaximized() && Settings::autoResizeToVideo()) {
@@ -989,8 +1038,8 @@ void MainWindow::resizeToVideo()
 ////////////////////////////////////////////////////
 void MainWindow::mediaStateChanged(Phonon::State newState, Phonon::State /* oldState */)
 {
-    // m_videoWidget->setVisible(mediaObject->hasVideo());
-    // m_infoLabel->setVisible(!mediaObject->hasVideo());
+    if (m_stayontopPolicy == SP_OnDemand)
+        toggleStayontop(newState == Phonon::PlayingState);
 
     switch (newState) {
     case Phonon::ErrorState:
@@ -1134,6 +1183,19 @@ void MainWindow::updateAudioChannelsMenu()
     channelChanged(focus_act);
 }
 
+void MainWindow::updateStayontopMenu()
+{
+    QMenu *stayontopMenu = GET_MENU("stayontopmenu");
+    if (!stayontopMenu)
+        return;
+
+    stayontopMenu->clear();
+    QList<QAction*> actions = stayontopGroup->actions();
+    foreach(QAction* act, actions) {
+        stayontopMenu->addAction(act);
+    }
+}
+
 void MainWindow::updateSubtitlesMenu()
 {
     qDebug() << "Loopy: available subtitles changed";
@@ -1173,6 +1235,7 @@ void MainWindow::updateSubtitlesMenu()
     subtitlesMenu->addSeparator();
     
     foreach( Phonon::SubtitleDescription sd, m_subtitles ) {
+        qDebug() << sd.index() << sd;
         act = subtitlesGroup->addAction(sd.name());
         act->setCheckable(true);
         if ( sd == currentSubtitle ) {
@@ -1262,7 +1325,8 @@ void MainWindow::loadSubtitle()
         if (isCurrentlyLocalMedia()) {
             appendSubtitleHistory(url.toLocalFile());
         }
-        
+
+        qDebug() << "Loopy: pick up index" << max+1;
         Phonon::SubtitleDescription sub(max+1, props);
         mediaController->setCurrentSubtitle(sub);
     }
@@ -1442,4 +1506,16 @@ void MainWindow::captureImage()
     QString tmpfile = QDir::homePath() + "/" + mktemp(tmpl) + ".png";
     if (offscreen.save(tmpfile))
         qDebug() << "Loopy: captured and saved " << tmpfile;
+}
+
+void MainWindow::toggleStayontop(bool val)
+{
+    bool visible = this->isVisible();
+    if (val) {
+        this->setWindowFlags(m_originFlags|Qt::WindowStaysOnTopHint);
+    } else {
+        this->setWindowFlags(m_originFlags);
+    }
+
+    this->setVisible(visible);
 }
