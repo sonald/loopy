@@ -7,8 +7,10 @@ new features:
 * display autodetected subtitiles ( need backend support )
 * allow to load external subtitle
 * basic audio channel ( need backend support)
+* stay on top
+* snapshot 
 
 recent plans:
 * remember user loaded subtitles
 * auto download subtitles from internet
-* effects ( backend support)
+* effects ( backend support )
