@@ -11,6 +11,7 @@
 #include <QVBoxLayout>
 #include <QImage>
 #include <QPainter>
+#include <QTemporaryFile>
 
 #include "mainwindow.h"
 
@@ -1501,11 +1502,17 @@ void MainWindow::captureImage()
         const QPixmap& snapshot = QPixmap::grabWindow(m_videoWidget->winId());
         offscreen = snapshot.toImage();
     }
+
+    QTemporaryFile tmpf;
+    tmpf.setAutoRemove(false);
+    tmpf.setFileTemplate(QDir::homePath() + "/loopy_snapshotXXXXXX.png");
+    if (!tmpf.open()) {
+        qDebug() << "Loopy: create temp file failed";
+        return;
+    }
     
-    char tmpl[] = "loopy_snapshotXXXXXX";
-    QString tmpfile = QDir::homePath() + "/" + mktemp(tmpl) + ".png";
-    if (offscreen.save(tmpfile))
-        qDebug() << "Loopy: captured and saved " << tmpfile;
+    if (offscreen.save(&tmpf))
+        qDebug() << "Loopy: captured and saved " << tmpf.fileName();
 }
 
 void MainWindow::toggleStayontop(bool val)
