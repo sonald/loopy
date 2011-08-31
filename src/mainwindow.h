@@ -198,7 +198,8 @@ private:
     Qt::WindowFlags m_originFlags;
     
     bool isCurrentlyLocalMedia();
-    void setupActionGroup(QActionGroup* ag, const QStringList& actions);
+    void setupActionGroup(QActionGroup* ag, const QStringList& actions,
+                          const QString& defaultAct = QString());
     void toggleStayontop(bool val);
 };
 

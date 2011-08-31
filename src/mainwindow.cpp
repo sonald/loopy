@@ -15,6 +15,8 @@
 
 #include "mainwindow.h"
 
+Q_DECLARE_METATYPE(QAction*);
+
 #define GET_MENU(name) static_cast<QMenu*>(guiFactory()->container(name, this))
 
 static inline bool isPlayable(const Phonon::MediaSource::Type t)
@@ -25,6 +27,8 @@ static inline bool isPlayable(const Phonon::MediaSource::Type t)
 
 MainWindow::MainWindow() : KXmlGuiWindow()
 {
+    qRegisterMetaType<QAction*>("QAction*");
+    
     //Phonon
     mediaObject = new Phonon::MediaObject(this);
     mediaController = new Phonon::MediaController(mediaObject);
@@ -224,41 +228,21 @@ void MainWindow::setupActions()
     connect(aspectGroup, SIGNAL(triggered(QAction *)), this, SLOT(aspectChanged(QAction *)));
     aspectGroup->setExclusive(true);
 
-    QAction* aspectActionAuto = actionCollection()->addAction("aspectActionAuto");
-    aspectActionAuto->setText(i18n("Auto"));
-    aspectActionAuto->setCheckable(true);
-    aspectActionAuto->setChecked(true);
-    aspectGroup->addAction(aspectActionAuto);
-
-    QAction* aspectActionScale = actionCollection()->addAction("aspectActionScale");
-    aspectActionScale->setText(i18n("Scale"));
-    aspectActionScale->setCheckable(true);
-    aspectGroup->addAction(aspectActionScale);
-
-    QAction* aspectAction16_9 = actionCollection()->addAction("aspectAction16_9");
-    aspectAction16_9->setText(i18n("16/9"));
-    aspectAction16_9->setCheckable(true);
-    aspectGroup->addAction(aspectAction16_9);
-
-    QAction* aspectAction4_3 = actionCollection()->addAction("aspectAction4_3");
-    aspectAction4_3->setText(i18n("4/3"));
-    aspectAction4_3->setCheckable(true);
-    aspectGroup->addAction(aspectAction4_3);
+    QStringList aspect_acts;
+    aspect_acts << "aspectActionAuto" << i18n("Auto")
+                << "aspectActionScale" << i18n("Scale")
+                << "aspectAction16_9" << i18n("16/9")
+                << "aspectAction4_3" << i18n("4/3");
+    setupActionGroup(aspectGroup, aspect_acts, "aspectActionAuto");
 
     QActionGroup *scaleGroup = new QActionGroup(this);
     connect(scaleGroup, SIGNAL(triggered(QAction *)), this, SLOT(scaleChanged(QAction *)));
     scaleGroup->setExclusive(true);
 
-    QAction* scaleActionFit = actionCollection()->addAction("scaleActionFit");
-    scaleActionFit->setText(i18n("Fit in view"));
-    scaleActionFit->setCheckable(true);
-    scaleActionFit->setChecked(true);
-    scaleGroup->addAction(scaleActionFit);
-
-    QAction* scaleActionCrop = actionCollection()->addAction("scaleActionCrop");
-    scaleActionCrop->setText(i18n("Scale and crop"));
-    scaleActionCrop->setCheckable(true);
-    scaleGroup->addAction(scaleActionCrop);
+    QStringList scale_acts;
+    scale_acts << "scaleActionFit" << i18n("Fit in view")
+               << "scaleActionCrop" << i18n("Scale and crop");
+    setupActionGroup(scaleGroup, scale_acts, "scaleActionFit");
 
     /// Stay on top
     stayontopGroup = new QActionGroup(this);
@@ -380,13 +364,24 @@ void MainWindow::setupActions()
     connect(reloadThemeAction, SIGNAL(triggered()), this, SLOT(reloadTheme()));
 }
 
-void MainWindow::setupActionGroup(QActionGroup* ag, const QStringList& actions)
+void MainWindow::setupActionGroup(QActionGroup* ag, const QStringList& actions,
+                                  const QString& defaultAct)
 {
+    QAction *active = NULL;
     for (int i = 0; i < actions.size(); i += 2) {
         QAction* act = actionCollection()->addAction(actions.at(i));
         act->setText(actions.at(i+1));
         act->setCheckable(true);
+        if (actions.at(i) == defaultAct) {
+            act->setChecked(true);
+            active = act;
+        }
         ag->addAction(act);
+    }
+
+    if (active) {
+        QMetaObject::invokeMethod(ag, "triggered", Qt::QueuedConnection,
+                                  Q_ARG(QAction *, active));
     }
 }
 
@@ -1011,6 +1006,7 @@ void MainWindow::subtitleChanged(QAction *act)
 
 void MainWindow::stayontopChanged(QAction *act)
 {
+    qDebug() << "Loopy: " << act->objectName();
     if (act->objectName() == "stayontopNever") {
         m_stayontopPolicy = SP_Never;
         toggleStayontop(false);
