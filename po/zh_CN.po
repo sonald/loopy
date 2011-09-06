@@ -1,0 +1,387 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# , 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2010-04-09 14:23+0200\n"
+"PO-Revision-Date: 2011-09-06 13:05+0800\n"
+"Last-Translator: \n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. i18n: file: src/generaloptions.ui:17
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#. i18n: file: src/loopy.kcfg:32
+#. i18n: ectx: label, entry (TrayIcon), group (General)
+#. i18n: file: src/generaloptions.ui:17
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#. i18n: file: src/loopy.kcfg:32
+#. i18n: ectx: label, entry (TrayIcon), group (General)
+#: po/rc.cpp:3 po/rc.cpp:27 rc.cpp:3 rc.cpp:27
+msgid "Show tray icon"
+msgstr "显示托盘图标"
+
+#. i18n: file: src/generaloptions.ui:24
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HidePlaylist)
+#: po/rc.cpp:6 rc.cpp:6
+msgid "Always hide playlist on startup"
+msgstr "在启动时总是隐藏播放列表"
+
+#. i18n: file: src/generaloptions.ui:31
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoResizeToVideo)
+#. i18n: file: src/loopy.kcfg:40
+#. i18n: ectx: label, entry (AutoResizeToVideo), group (General)
+#. i18n: file: src/generaloptions.ui:31
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoResizeToVideo)
+#. i18n: file: src/loopy.kcfg:40
+#. i18n: ectx: label, entry (AutoResizeToVideo), group (General)
+#: po/rc.cpp:9 po/rc.cpp:33 rc.cpp:9 rc.cpp:33
+msgid "Autoresize to videosize"
+msgstr "自动调整到视频大小"
+
+#. i18n: file: src/generaloptions.ui:38
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysEnqueue)
+#. i18n: file: src/loopy.kcfg:44
+#. i18n: ectx: label, entry (AlwaysEnqueue), group (General)
+#. i18n: file: src/generaloptions.ui:38
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysEnqueue)
+#. i18n: file: src/loopy.kcfg:44
+#. i18n: ectx: label, entry (AlwaysEnqueue), group (General)
+#: po/rc.cpp:12 po/rc.cpp:36 rc.cpp:12 rc.cpp:36
+msgid "Always enqueue files"
+msgstr "总是将文件放入播放队列"
+
+#. i18n: file: src/loopy.kcfg:10
+#. i18n: ectx: label, entry (ButtonSeek), group (SeekingOptions)
+#: po/rc.cpp:15 rc.cpp:15
+msgid "Button seek"
+msgstr "定位 "
+
+#. i18n: file: src/loopy.kcfg:14
+#. i18n: ectx: label, entry (ButtonJump), group (SeekingOptions)
+#: po/rc.cpp:18 rc.cpp:18
+msgid "Button jump"
+msgstr "跳转"
+
+#. i18n: file: src/loopy.kcfg:18
+#. i18n: ectx: label, entry (MouseWheelSeek), group (SeekingOptions)
+#: po/rc.cpp:21 rc.cpp:21
+msgid "Mousewheel seek"
+msgstr "鼠标滚轮定位"
+
+#. i18n: file: src/loopy.kcfg:25
+#. i18n: ectx: label, entry (Theme), group (Theme)
+#: po/rc.cpp:24 src/options.cpp:57 rc.cpp:24
+msgid "Theme"
+msgstr "主题"
+
+#. i18n: file: src/loopy.kcfg:36
+#. i18n: ectx: label, entry (HidePlaylist), group (General)
+#: po/rc.cpp:30 rc.cpp:30
+msgid "Hide Playlist on startup"
+msgstr "在启动时隐藏播放列表"
+
+#. i18n: file: src/loopyui.rc:6
+#. i18n: ectx: Menu (file)
+#: po/rc.cpp:39 rc.cpp:39
+msgid "&File"
+msgstr "文件(&F)"
+
+#. i18n: file: src/loopyui.rc:16
+#. i18n: ectx: Menu (play)
+#: po/rc.cpp:42 rc.cpp:42
+msgid "&Play"
+msgstr "播放(&P)"
+
+#. i18n: file: src/loopyui.rc:29
+#. i18n: ectx: Menu (video)
+#: po/rc.cpp:45 rc.cpp:45
+msgid "&Video"
+msgstr "视频(&V)"
+
+#. i18n: file: src/loopyui.rc:31
+#. i18n: ectx: Menu (aspectmenu)
+#: po/rc.cpp:48 rc.cpp:48
+msgid "&Aspect ratio"
+msgstr "外观比例(&A)"
+
+#. i18n: file: src/loopyui.rc:38
+#. i18n: ectx: Menu (scalemenu)
+#: po/rc.cpp:51 rc.cpp:51
+msgid "&Scale mode"
+msgstr "缩放模式(&S)"
+
+#. i18n: file: src/loopyui.rc:43
+#. i18n: ectx: Menu (titlemenu)
+#: po/rc.cpp:54 rc.cpp:54
+msgid "&Title"
+msgstr "标题(&T)"
+
+#. i18n: file: src/loopyui.rc:46
+#. i18n: ectx: Menu (chaptermenu)
+#: po/rc.cpp:57 rc.cpp:57
+msgid "&Chapter"
+msgstr "章节(&C)"
+
+#. i18n: file: src/loopyui.rc:49
+#. i18n: ectx: Menu (anglemenu)
+#: po/rc.cpp:60 rc.cpp:60
+msgid "&Angle"
+msgstr "角度(&A)"
+
+#. i18n: file: src/loopyui.rc:56
+#. i18n: ectx: Menu (audio)
+#: po/rc.cpp:63 rc.cpp:63
+msgid "&Audio"
+msgstr "音频(&A)"
+
+#. i18n: file: src/loopyui.rc:69
+#. i18n: ectx: ToolBar (mainToolBar)
+#: po/rc.cpp:66 rc.cpp:66
+msgid "Main Toolbar"
+msgstr "主工具栏"
+
+#. i18n: file: src/seekingoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, seekingGroup)
+#: po/rc.cpp:69 rc.cpp:69
+msgid "Seeking values in seconds "
+msgstr "以秒为单位定位"
+
+#. i18n: file: src/seekingoptions.ui:23
+#. i18n: ectx: property (text), widget (QLabel, buttonSeekLabel)
+#: po/rc.cpp:72 rc.cpp:72
+msgid "Button seek value"
+msgstr "定位值"
+
+#. i18n: file: src/seekingoptions.ui:40
+#. i18n: ectx: property (text), widget (QLabel, buttonJumpLabel)
+#: po/rc.cpp:75 rc.cpp:75
+msgid "Button jump value"
+msgstr "跳转值"
+
+#. i18n: file: src/seekingoptions.ui:60
+#. i18n: ectx: property (text), widget (QLabel, mouseWheelSeekLabel)
+#: po/rc.cpp:78 rc.cpp:78
+msgid "Mousewheel seek value"
+msgstr "鼠标滚轮定位值"
+
+#. i18n: file: src/themeoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, ThemeActionGroup)
+#: po/rc.cpp:81 rc.cpp:81
+msgid "Choose a theme"
+msgstr "选择主题"
+
+#: po/rc.cpp:82 rc.cpp:82
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "名字"
+
+#: po/rc.cpp:83 rc.cpp:83
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "邮件地址"
+
+#: src/main.cpp:43
+msgid "Loopy"
+msgstr ""
+
+#: src/main.cpp:44
+msgid "Slim, themeable video player, based on the KDE phonon libraries."
+msgstr "基于KDE phonon库的轻量、支持皮肤的视频播放器"
+
+#: src/main.cpp:46
+msgid "Copyright (c) 2010 MonsterMagnet"
+msgstr ""
+
+#: src/main.cpp:49
+msgid "MonsterMagnet"
+msgstr ""
+
+#: src/main.cpp:49
+msgid "Original Developer/Maintainer"
+msgstr "原开发者/维护者"
+
+#: src/main.cpp:50
+msgid "The Kaffeine Developers"
+msgstr "Kaffeine开发者"
+
+#: src/main.cpp:50
+msgid "Single instance, DVD support and a lot more"
+msgstr "单实例，支持DVD以及更多"
+
+#: src/main.cpp:51
+msgid "The Gwenview Developers"
+msgstr "Gwenview开发者"
+
+#: src/main.cpp:51
+msgid "Fullscreenbar and qss stylesheet"
+msgstr "全屏工具栏和qss风格"
+
+#: src/mainwindow.cpp:125 src/mainwindow.cpp:529
+msgid "Open URL"
+msgstr "打开地址"
+
+#: src/mainwindow.cpp:134 src/mainwindow.cpp:435
+msgid "Play DVD"
+msgstr "播放DVD"
+
+#: src/mainwindow.cpp:143 src/mainwindow.cpp:985 src/mainwindow.cpp:992
+msgid "Play"
+msgstr "播放"
+
+#: src/mainwindow.cpp:150
+msgid "Seek Forward"
+msgstr "向前定位"
+
+#: src/mainwindow.cpp:157
+msgid "Jump Forward"
+msgstr "向前跳转"
+
+#: src/mainwindow.cpp:164
+msgid "Seek Backward"
+msgstr "向后定位"
+
+#: src/mainwindow.cpp:171
+msgid "Jump Backward"
+msgstr "向后跳转"
+
+#: src/mainwindow.cpp:178 src/playlistdock.cpp:71
+msgid "Playlist Skip Forward"
+msgstr "播放列表下一项"
+
+#: src/mainwindow.cpp:185 src/playlistdock.cpp:76
+msgid "Playlist Skip Backward"
+msgstr "播放列表前一项"
+
+#: src/mainwindow.cpp:192
+msgid "Repeat"
+msgstr "重复"
+
+#: src/mainwindow.cpp:204
+msgid "Auto"
+msgstr "自动"
+
+#: src/mainwindow.cpp:210
+msgid "Scale"
+msgstr "比例"
+
+#: src/mainwindow.cpp:215
+msgid "16/9"
+msgstr ""
+
+#: src/mainwindow.cpp:220
+msgid "4/3"
+msgstr ""
+
+#: src/mainwindow.cpp:229
+msgid "Fit in view"
+msgstr "适应播放窗口"
+
+#: src/mainwindow.cpp:235
+msgid "Scale and crop"
+msgstr "缩放并裁剪"
+
+#: src/mainwindow.cpp:263 src/mainwindow.cpp:896
+msgid "Mute"
+msgstr "静音"
+
+#: src/mainwindow.cpp:270
+msgid "Increase Volume"
+msgstr "音量+"
+
+#: src/mainwindow.cpp:276
+msgid "Decrease Volume"
+msgstr "音量-"
+
+#: src/mainwindow.cpp:283 src/playlistdock.cpp:16
+msgid "Playlist"
+msgstr "播放列表"
+
+#: src/mainwindow.cpp:289
+msgid "Minimal View"
+msgstr "最小视窗"
+
+#: src/mainwindow.cpp:312
+msgid "Volume slider"
+msgstr "音量滑块"
+
+#: src/mainwindow.cpp:319
+msgid "Position slider"
+msgstr "位置滑块"
+
+#: src/mainwindow.cpp:323
+msgid "Reload Theme (for theme development)"
+msgstr "重新载入主题（开发主题用）"
+
+#: src/mainwindow.cpp:436
+msgid "Add Files or URLs to playlist"
+msgstr "添加文件或地址到播放列表"
+
+#: src/mainwindow.cpp:437
+msgid "Open Files or URLs to play"
+msgstr "打开文件或地址进行播放"
+
+#: src/mainwindow.cpp:495
+msgid "Select file(s) to play"
+msgstr "选择文件播放"
+
+#: src/mainwindow.cpp:520
+msgid "Add file(s) to playlist"
+msgstr "添加文件到播放列表"
+
+#: src/mainwindow.cpp:529
+msgid "Enter a URL:"
+msgstr "输入地址："
+
+#: src/mainwindow.cpp:671
+msgid "You get back to normal view with the F3 key."
+msgstr "按F3返回到正常视窗"
+
+#: src/mainwindow.cpp:892
+msgid "Unmute"
+msgstr "取消静音"
+
+#: src/mainwindow.cpp:971
+msgid "Pause"
+msgstr "暂停"
+
+#: src/options.cpp:49 src/options.cpp:81
+msgid "no theme"
+msgstr "无主题"
+
+#: src/options.cpp:56
+msgid "General"
+msgstr "通常"
+
+#: src/options.cpp:58
+msgid "Seeking"
+msgstr "定位"
+
+#: src/playlistdock.cpp:46
+msgid "Clear playlist"
+msgstr "清除播放列表"
+
+#: src/playlistdock.cpp:51
+msgid "Add file(s)"
+msgstr "添加文件"
+
+#: src/playlistdock.cpp:56
+msgid "Clear selected"
+msgstr "清除选中"
+
+#: src/playlistdock.cpp:61
+msgid "Move up"
+msgstr "向上移动"
+
+#: src/playlistdock.cpp:66
+msgid "Move down"
+msgstr "向下移动"
+
