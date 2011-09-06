@@ -7,381 +7,625 @@ msgid ""
 msgstr ""
 "Project-Id-Version: loopy\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2010-04-09 14:23+0200\n"
+"POT-Creation-Date: 2011-09-06 13:36+0800\n"
 "PO-Revision-Date: 2010-03-21 14:05+0100\n"
 "Last-Translator: Barcza KÃ¡roly <kbarcza@blackpanther.hu>\n"
 "Language-Team: blackPanther Europe <info@blackpanther.hu>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#. i18n: file: src/generaloptions.ui:17
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:17
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
-#. i18n: file: src/loopy.kcfg:32
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:32
 #. i18n: ectx: label, entry (TrayIcon), group (General)
 #. i18n: file: src/generaloptions.ui:17
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
 #. i18n: file: src/loopy.kcfg:32
 #. i18n: ectx: label, entry (TrayIcon), group (General)
-#: po/rc.cpp:3 po/rc.cpp:27 rc.cpp:3 rc.cpp:27
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:17
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:32
+#. i18n: ectx: label, entry (TrayIcon), group (General)
+#. i18n: file: src/generaloptions.ui:17
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_TrayIcon)
+#. i18n: file: src/loopy.kcfg:32
+#. i18n: ectx: label, entry (TrayIcon), group (General)
+#: build/src/ui_generaloptions.h:71 po/rc.cpp:3 po/rc.cpp:27 po/rc.cpp:90
+#: po/rc.cpp:114 rc.cpp:3 rc.cpp:27 rc.cpp:90 rc.cpp:114
 msgid "Show tray icon"
 msgstr "Panelikon megjelenÃ­tÃ©se"
 
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:24
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HidePlaylist)
 #. i18n: file: src/generaloptions.ui:24
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_HidePlaylist)
-#: po/rc.cpp:6 rc.cpp:6
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:24
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HidePlaylist)
+#. i18n: file: src/generaloptions.ui:24
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_HidePlaylist)
+#: build/src/ui_generaloptions.h:72 po/rc.cpp:6 po/rc.cpp:93 rc.cpp:6
+#: rc.cpp:93
 msgid "Always hide playlist on startup"
 msgstr "Mindig rejtse el indulÃ¡skor a lejÃ¡tszÃ³listÃ¡t"
 
-#. i18n: file: src/generaloptions.ui:31
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:31
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoResizeToVideo)
-#. i18n: file: src/loopy.kcfg:40
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:40
 #. i18n: ectx: label, entry (AutoResizeToVideo), group (General)
 #. i18n: file: src/generaloptions.ui:31
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoResizeToVideo)
 #. i18n: file: src/loopy.kcfg:40
 #. i18n: ectx: label, entry (AutoResizeToVideo), group (General)
-#: po/rc.cpp:9 po/rc.cpp:33 rc.cpp:9 rc.cpp:33
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:31
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoResizeToVideo)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:40
+#. i18n: ectx: label, entry (AutoResizeToVideo), group (General)
+#. i18n: file: src/generaloptions.ui:31
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AutoResizeToVideo)
+#. i18n: file: src/loopy.kcfg:40
+#. i18n: ectx: label, entry (AutoResizeToVideo), group (General)
+#: build/src/ui_generaloptions.h:73 po/rc.cpp:9 po/rc.cpp:33 po/rc.cpp:96
+#: po/rc.cpp:120 rc.cpp:9 rc.cpp:33 rc.cpp:96 rc.cpp:120
 msgid "Autoresize to videosize"
 msgstr "Automatikus Ã¡tmÃ©retezÃ©s a videÃ³ mÃ©retÃ©hez"
 
-#. i18n: file: src/generaloptions.ui:38
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:38
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysEnqueue)
-#. i18n: file: src/loopy.kcfg:44
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:44
 #. i18n: ectx: label, entry (AlwaysEnqueue), group (General)
 #. i18n: file: src/generaloptions.ui:38
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysEnqueue)
 #. i18n: file: src/loopy.kcfg:44
 #. i18n: ectx: label, entry (AlwaysEnqueue), group (General)
-#: po/rc.cpp:12 po/rc.cpp:36 rc.cpp:12 rc.cpp:36
+#. i18n: file: loopy-0.5.4/src/generaloptions.ui:38
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysEnqueue)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:44
+#. i18n: ectx: label, entry (AlwaysEnqueue), group (General)
+#. i18n: file: src/generaloptions.ui:38
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AlwaysEnqueue)
+#. i18n: file: src/loopy.kcfg:44
+#. i18n: ectx: label, entry (AlwaysEnqueue), group (General)
+#: build/src/ui_generaloptions.h:74 po/rc.cpp:12 po/rc.cpp:36 po/rc.cpp:99
+#: po/rc.cpp:123 rc.cpp:12 rc.cpp:36 rc.cpp:99 rc.cpp:123
 msgid "Always enqueue files"
 msgstr "A fÃ¡jlok listÃ¡ba mindig"
 
-#. i18n: file: src/loopy.kcfg:10
-#. i18n: ectx: label, entry (ButtonSeek), group (SeekingOptions)
-#: po/rc.cpp:15 rc.cpp:15
-msgid "Button seek"
-msgstr "GomblÃ©ptetÃ©s"
-
-#. i18n: file: src/loopy.kcfg:14
-#. i18n: ectx: label, entry (ButtonJump), group (SeekingOptions)
-#: po/rc.cpp:18 rc.cpp:18
-msgid "Button jump"
-msgstr "GombugrÃ¡s"
-
-#. i18n: file: src/loopy.kcfg:18
-#. i18n: ectx: label, entry (MouseWheelSeek), group (SeekingOptions)
-#: po/rc.cpp:21 rc.cpp:21
-msgid "Mousewheel seek"
-msgstr "EgÃ©rgÃ¶rgÅ‘ lÃ©ptetÃ©s"
-
-#. i18n: file: src/loopy.kcfg:25
-#. i18n: ectx: label, entry (Theme), group (Theme)
-#: po/rc.cpp:24 src/options.cpp:57 rc.cpp:24
-msgid "Theme"
-msgstr "TÃ©ma"
-
-#. i18n: file: src/loopy.kcfg:36
-#. i18n: ectx: label, entry (HidePlaylist), group (General)
-#: po/rc.cpp:30 rc.cpp:30
-msgid "Hide Playlist on startup"
-msgstr "A lejÃ¡tszÃ³lista elrejtÃ©se indulÃ¡skor"
-
-#. i18n: file: src/loopyui.rc:6
-#. i18n: ectx: Menu (file)
-#: po/rc.cpp:39 rc.cpp:39
-msgid "&File"
-msgstr "&FÃ¡jl"
-
-#. i18n: file: src/loopyui.rc:16
-#. i18n: ectx: Menu (play)
-#: po/rc.cpp:42 rc.cpp:42
-msgid "&Play"
-msgstr "Le&jÃ¡tszÃ¡s"
-
-#. i18n: file: src/loopyui.rc:29
-#. i18n: ectx: Menu (video)
-#: po/rc.cpp:45 rc.cpp:45
-msgid "&Video"
-msgstr "&VideÃ³"
-
-#. i18n: file: src/loopyui.rc:31
-#. i18n: ectx: Menu (aspectmenu)
-#: po/rc.cpp:48 rc.cpp:48
-msgid "&Aspect ratio"
-msgstr "&KÃ©parÃ¡ny"
-
-#. i18n: file: src/loopyui.rc:38
-#. i18n: ectx: Menu (scalemenu)
-#: po/rc.cpp:51 rc.cpp:51
-msgid "&Scale mode"
-msgstr "&ÃtmÃ©retezÃ©si mÃ³d"
-
-#. i18n: file: src/loopyui.rc:43
-#. i18n: ectx: Menu (titlemenu)
-#: po/rc.cpp:54 rc.cpp:54
-msgid "&Title"
-msgstr "&CÃ­m"
-
-#. i18n: file: src/loopyui.rc:46
-#. i18n: ectx: Menu (chaptermenu)
-#: po/rc.cpp:57 rc.cpp:57
-msgid "&Chapter"
-msgstr "&Fejezet"
-
-#. i18n: file: src/loopyui.rc:49
-#. i18n: ectx: Menu (anglemenu)
-#: po/rc.cpp:60 rc.cpp:60
-msgid "&Angle"
-msgstr "&DÅ‘lÃ©sszÃ¶g"
-
-#. i18n: file: src/loopyui.rc:56
-#. i18n: ectx: Menu (audio)
-#: po/rc.cpp:63 rc.cpp:63
-msgid "&Audio"
-msgstr "&Hang"
-
-#. i18n: file: src/loopyui.rc:69
-#. i18n: ectx: ToolBar (mainToolBar)
-#: po/rc.cpp:66 rc.cpp:66
-msgid "Main Toolbar"
-msgstr "Alap eszkÃ¶ztÃ¡r"
-
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, seekingGroup)
 #. i18n: file: src/seekingoptions.ui:17
 #. i18n: ectx: property (title), widget (QGroupBox, seekingGroup)
-#: po/rc.cpp:69 rc.cpp:69
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, seekingGroup)
+#. i18n: file: src/seekingoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, seekingGroup)
+#: build/src/ui_seekingoptions.h:101 po/rc.cpp:75 po/rc.cpp:165 rc.cpp:75
+#: rc.cpp:165
 msgid "Seeking values in seconds "
 msgstr "LÃ©ptetÃ©si Ã©rtÃ©k mÃ¡sodpercben"
 
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:23
+#. i18n: ectx: property (text), widget (QLabel, buttonSeekLabel)
 #. i18n: file: src/seekingoptions.ui:23
 #. i18n: ectx: property (text), widget (QLabel, buttonSeekLabel)
-#: po/rc.cpp:72 rc.cpp:72
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:23
+#. i18n: ectx: property (text), widget (QLabel, buttonSeekLabel)
+#. i18n: file: src/seekingoptions.ui:23
+#. i18n: ectx: property (text), widget (QLabel, buttonSeekLabel)
+#: build/src/ui_seekingoptions.h:102 po/rc.cpp:78 po/rc.cpp:168 rc.cpp:78
+#: rc.cpp:168
 msgid "Button seek value"
 msgstr "GomblÃ©ptetÃ©s Ã©rtÃ©ke"
 
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:40
+#. i18n: ectx: property (text), widget (QLabel, buttonJumpLabel)
 #. i18n: file: src/seekingoptions.ui:40
 #. i18n: ectx: property (text), widget (QLabel, buttonJumpLabel)
-#: po/rc.cpp:75 rc.cpp:75
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:40
+#. i18n: ectx: property (text), widget (QLabel, buttonJumpLabel)
+#. i18n: file: src/seekingoptions.ui:40
+#. i18n: ectx: property (text), widget (QLabel, buttonJumpLabel)
+#: build/src/ui_seekingoptions.h:103 po/rc.cpp:81 po/rc.cpp:171 rc.cpp:81
+#: rc.cpp:171
 msgid "Button jump value"
 msgstr "GombugrÃ¡s Ã©rtÃ©ke"
 
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:60
+#. i18n: ectx: property (text), widget (QLabel, mouseWheelSeekLabel)
 #. i18n: file: src/seekingoptions.ui:60
 #. i18n: ectx: property (text), widget (QLabel, mouseWheelSeekLabel)
-#: po/rc.cpp:78 rc.cpp:78
+#. i18n: file: loopy-0.5.4/src/seekingoptions.ui:60
+#. i18n: ectx: property (text), widget (QLabel, mouseWheelSeekLabel)
+#. i18n: file: src/seekingoptions.ui:60
+#. i18n: ectx: property (text), widget (QLabel, mouseWheelSeekLabel)
+#: build/src/ui_seekingoptions.h:104 po/rc.cpp:84 po/rc.cpp:174 rc.cpp:84
+#: rc.cpp:174
 msgid "Mousewheel seek value"
 msgstr "EgÃ©rgÃ¶rgÅ‘ lÃ©ptetÃ©si Ã©rtÃ©ke"
 
+#. i18n: file: loopy-0.5.4/src/themeoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, ThemeActionGroup)
 #. i18n: file: src/themeoptions.ui:17
 #. i18n: ectx: property (title), widget (QGroupBox, ThemeActionGroup)
-#: po/rc.cpp:81 rc.cpp:81
+#. i18n: file: loopy-0.5.4/src/themeoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, ThemeActionGroup)
+#. i18n: file: src/themeoptions.ui:17
+#. i18n: ectx: property (title), widget (QGroupBox, ThemeActionGroup)
+#: build/src/ui_themeoptions.h:63 po/rc.cpp:87 po/rc.cpp:177 rc.cpp:87
+#: rc.cpp:177
 msgid "Choose a theme"
 msgstr "TÃ©ma kivÃ¡lasztÃ¡sa"
 
-#: po/rc.cpp:82 rc.cpp:82
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Barcza KÃ¡roly (www.blackpanther.hu)"
-
-#: po/rc.cpp:83 rc.cpp:83
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "kbarcza@blackpanther.hu"
-
-#: src/main.cpp:43
+#: loopy-0.5.4/src/main.cpp:44 src/main.cpp:44
 msgid "Loopy"
 msgstr "Loopy"
 
-#: src/main.cpp:44
+#: loopy-0.5.4/src/main.cpp:45 src/main.cpp:45
 #, fuzzy
 msgid "Slim, themeable video player, based on the KDE phonon libraries."
 msgstr "Egy hagyomÃ¡nyos videÃ³ lejÃ¡tszÃ³ phonon alapokon."
 
-#: src/main.cpp:46
-msgid "Copyright (c) 2010 MonsterMagnet"
+#: loopy-0.5.4/src/main.cpp:47 src/main.cpp:47
+#, fuzzy
+msgid ""
+"Copyright (c) 2010 MonsterMagnet\n"
+"Copyright (c) 2011 Sian Cao"
 msgstr "Copyright (c) 2010 MonsterMagnet"
 
-#: src/main.cpp:49
+#: loopy-0.5.4/src/main.cpp:51 src/main.cpp:51
 msgid "MonsterMagnet"
 msgstr "MonsterMagnet"
 
-#: src/main.cpp:49
+#: loopy-0.5.4/src/main.cpp:51 src/main.cpp:51
 msgid "Original Developer/Maintainer"
 msgstr "Eredeti fejlesztÅ‘ Ã©s karbantartÃ³"
 
-#: src/main.cpp:50
+#: loopy-0.5.4/src/main.cpp:53 src/main.cpp:53
+msgid "Sian Cao"
+msgstr ""
+
+#: loopy-0.5.4/src/main.cpp:53 src/main.cpp:53
+msgid "Author and maintainer"
+msgstr ""
+
+#: loopy-0.5.4/src/main.cpp:55 src/main.cpp:55
 msgid "The Kaffeine Developers"
 msgstr "A Kaffeine kÃ©szÃ­tÅ‘i"
 
-#: src/main.cpp:50
+#: loopy-0.5.4/src/main.cpp:56 src/main.cpp:56
 msgid "Single instance, DVD support and a lot more"
 msgstr "Egyetlen pÃ©ldÃ¡ny, DVD tÃ¡mogatÃ¡s Ã©s egyÃ©b"
 
-#: src/main.cpp:51
+#: loopy-0.5.4/src/main.cpp:57 src/main.cpp:57
 msgid "The Gwenview Developers"
 msgstr "A Gwenview kÃ©szÃ­tÅ‘i"
 
-#: src/main.cpp:51
+#: loopy-0.5.4/src/main.cpp:58 src/main.cpp:58
 msgid "Fullscreenbar and qss stylesheet"
 msgstr "TeljeskÃ©pernyÅ‘-bÃ¡r Ã©s qss stÃ­luslap"
 
-#: src/mainwindow.cpp:125 src/mainwindow.cpp:529
+#: loopy-0.5.4/src/mainwindow.cpp:133 loopy-0.5.4/src/mainwindow.cpp:546
+#: src/mainwindow.cpp:153 src/mainwindow.cpp:584
 msgid "Open URL"
 msgstr "URL megnyitÃ¡sa"
 
-#: src/mainwindow.cpp:134 src/mainwindow.cpp:435
+#: loopy-0.5.4/src/mainwindow.cpp:142 loopy-0.5.4/src/mainwindow.cpp:457
+#: src/mainwindow.cpp:162 src/mainwindow.cpp:495
 msgid "Play DVD"
 msgstr "DVD lejÃ¡tszÃ¡sa"
 
-#: src/mainwindow.cpp:143 src/mainwindow.cpp:985 src/mainwindow.cpp:992
+#: loopy-0.5.4/src/mainwindow.cpp:151 loopy-0.5.4/src/mainwindow.cpp:1007
+#: loopy-0.5.4/src/mainwindow.cpp:1014 src/mainwindow.cpp:171
+#: src/mainwindow.cpp:1064 src/mainwindow.cpp:1071
 msgid "Play"
 msgstr "LejÃ¡tszÃ¡s"
 
-#: src/mainwindow.cpp:150
+#: loopy-0.5.4/src/mainwindow.cpp:158 src/mainwindow.cpp:178
 msgid "Seek Forward"
 msgstr "LÃ©ptetÃ©s elÅ‘re"
 
-#: src/mainwindow.cpp:157
+#: loopy-0.5.4/src/mainwindow.cpp:165 src/mainwindow.cpp:185
 msgid "Jump Forward"
 msgstr "UgrÃ¡s elÅ‘re"
 
-#: src/mainwindow.cpp:164
+#: loopy-0.5.4/src/mainwindow.cpp:172 src/mainwindow.cpp:192
 msgid "Seek Backward"
 msgstr "LÃ©ptetÃ©s vissza"
 
-#: src/mainwindow.cpp:171
+#: loopy-0.5.4/src/mainwindow.cpp:179 src/mainwindow.cpp:199
 msgid "Jump Backward"
 msgstr "UgrÃ¡s vissza"
 
-#: src/mainwindow.cpp:178 src/playlistdock.cpp:71
+#: loopy-0.5.4/src/mainwindow.cpp:186 loopy-0.5.4/src/playlistdock.cpp:71
+#: src/mainwindow.cpp:206 src/playlistdock.cpp:71
 msgid "Playlist Skip Forward"
 msgstr "LejÃ¡tszÃ¡s kihagyÃ¡sa, tovÃ¡bb"
 
-#: src/mainwindow.cpp:185 src/playlistdock.cpp:76
+#: loopy-0.5.4/src/mainwindow.cpp:193 loopy-0.5.4/src/playlistdock.cpp:76
+#: src/mainwindow.cpp:213 src/playlistdock.cpp:76
 msgid "Playlist Skip Backward"
 msgstr "LejÃ¡tszÃ¡s kihagyÃ¡sa, vissza"
 
-#: src/mainwindow.cpp:192
+#: loopy-0.5.4/src/mainwindow.cpp:200 src/mainwindow.cpp:220
 msgid "Repeat"
 msgstr "IsmÃ©tlÃ©s"
 
-#: src/mainwindow.cpp:204
+#: loopy-0.5.4/src/mainwindow.cpp:212 src/mainwindow.cpp:232
 msgid "Auto"
 msgstr "Automatikus"
 
-#: src/mainwindow.cpp:210
+#: loopy-0.5.4/src/mainwindow.cpp:218 src/mainwindow.cpp:233
 msgid "Scale"
 msgstr "MÃ©retezÃ©s"
 
-#: src/mainwindow.cpp:215
+#: loopy-0.5.4/src/mainwindow.cpp:223 src/mainwindow.cpp:234
 msgid "16/9"
 msgstr "16/9"
 
-#: src/mainwindow.cpp:220
+#: loopy-0.5.4/src/mainwindow.cpp:228 src/mainwindow.cpp:235
 msgid "4/3"
 msgstr "4/3"
 
-#: src/mainwindow.cpp:229
+#: loopy-0.5.4/src/mainwindow.cpp:237 src/mainwindow.cpp:243
 msgid "Fit in view"
 msgstr "KitÃ¶ltÃ©s a nÃ©zetben"
 
-#: src/mainwindow.cpp:235
+#: loopy-0.5.4/src/mainwindow.cpp:243 src/mainwindow.cpp:244
 msgid "Scale and crop"
 msgstr "MÃ©retezÃ©s Ã©s levÃ¡gÃ¡s"
 
-#: src/mainwindow.cpp:263 src/mainwindow.cpp:896
+#: loopy-0.5.4/src/mainwindow.cpp:277 loopy-0.5.4/src/mainwindow.cpp:903
+#: src/mainwindow.cpp:294 src/mainwindow.cpp:941
 msgid "Mute"
 msgstr "NÃ©mÃ­tÃ¡s"
 
-#: src/mainwindow.cpp:270
+#: loopy-0.5.4/src/mainwindow.cpp:284 src/mainwindow.cpp:301
 msgid "Increase Volume"
 msgstr "A hangerÅ‘ fel"
 
-#: src/mainwindow.cpp:276
+#: loopy-0.5.4/src/mainwindow.cpp:290 src/mainwindow.cpp:307
 msgid "Decrease Volume"
 msgstr "A hangerÅ‘ le"
 
-#: src/mainwindow.cpp:283 src/playlistdock.cpp:16
+#: loopy-0.5.4/src/mainwindow.cpp:305 loopy-0.5.4/src/playlistdock.cpp:16
+#: src/mainwindow.cpp:322 src/playlistdock.cpp:16
 msgid "Playlist"
 msgstr "LejÃ¡tszÃ³lista"
 
-#: src/mainwindow.cpp:289
+#: loopy-0.5.4/src/mainwindow.cpp:311 src/mainwindow.cpp:328
 msgid "Minimal View"
 msgstr "MinimÃ¡lis nÃ©zet"
 
-#: src/mainwindow.cpp:312
+#: loopy-0.5.4/src/mainwindow.cpp:334 src/mainwindow.cpp:351
 msgid "Volume slider"
 msgstr "HangerÅ‘ csÃºszka"
 
-#: src/mainwindow.cpp:319
+#: loopy-0.5.4/src/mainwindow.cpp:341 src/mainwindow.cpp:358
 msgid "Position slider"
 msgstr "PozÃ­ciÃ³jelzÅ‘"
 
-#: src/mainwindow.cpp:323
+#: loopy-0.5.4/src/mainwindow.cpp:345 src/mainwindow.cpp:362
 msgid "Reload Theme (for theme development)"
 msgstr ""
 
-#: src/mainwindow.cpp:436
+#: loopy-0.5.4/src/mainwindow.cpp:458 src/mainwindow.cpp:496
 msgid "Add Files or URLs to playlist"
 msgstr "FÃ¡jlok vagy URL-ek hozzÃ¡adÃ¡sa a lejÃ¡tszÃ³listÃ¡hoz"
 
-#: src/mainwindow.cpp:437
+#: loopy-0.5.4/src/mainwindow.cpp:459 src/mainwindow.cpp:497
 msgid "Open Files or URLs to play"
 msgstr "FÃ¡jlok vagy URL-el megnyitÃ¡sa lejÃ¡tszÃ¡sra"
 
-#: src/mainwindow.cpp:495
+#: loopy-0.5.4/src/mainwindow.cpp:505 src/mainwindow.cpp:543
 msgid "Select file(s) to play"
 msgstr "A lejÃ¡tszandÃ³ fÃ¡jl(ok) kivÃ¡lasztÃ¡sa"
 
-#: src/mainwindow.cpp:520
+#: loopy-0.5.4/src/mainwindow.cpp:518 src/mainwindow.cpp:556
 msgid "Add file(s) to playlist"
 msgstr "FÃ¡jl(ok)hozzÃ¡adÃ¡sa a lejÃ¡tszÃ³listÃ¡hoz"
 
-#: src/mainwindow.cpp:529
+#: loopy-0.5.4/src/mainwindow.cpp:546 src/mainwindow.cpp:584
 msgid "Enter a URL:"
 msgstr "Adjon meg egy URL-t:"
 
-#: src/mainwindow.cpp:671
+#: loopy-0.5.4/src/mainwindow.cpp:678 src/mainwindow.cpp:716
 msgid "You get back to normal view with the F3 key."
 msgstr ""
 
-#: src/mainwindow.cpp:892
+#: loopy-0.5.4/src/mainwindow.cpp:899 src/mainwindow.cpp:937
 msgid "Unmute"
 msgstr "Nem nÃ©mÃ­t"
 
-#: src/mainwindow.cpp:971
+#: loopy-0.5.4/src/mainwindow.cpp:993 src/mainwindow.cpp:1050
 msgid "Pause"
 msgstr "SzÃ¼net"
 
+#: loopy-0.5.4/src/mainwindow.cpp:1144 src/mainwindow.cpp:1214
+msgid "Load External Subtitle..."
+msgstr ""
+
+#: loopy-0.5.4/src/mainwindow.cpp:1152 src/mainwindow.cpp:1227
+msgid "Auto Select Subtitle"
+msgstr ""
+
+#: loopy-0.5.4/src/mainwindow.cpp:1213 src/mainwindow.cpp:1307
+msgid "Select subtitle file"
+msgstr ""
+
+#: loopy-0.5.4/src/options.cpp:49 loopy-0.5.4/src/options.cpp:81
 #: src/options.cpp:49 src/options.cpp:81
 msgid "no theme"
 msgstr "Nincs kivÃ¡lasztva tÃ©ma"
 
-#: src/options.cpp:56
+#: loopy-0.5.4/src/options.cpp:56 src/options.cpp:56
 msgid "General"
 msgstr "ÃltalÃ¡nos"
 
-#: src/options.cpp:58
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:25
+#. i18n: ectx: label, entry (Theme), group (Theme)
+#. i18n: file: src/loopy.kcfg:25
+#. i18n: ectx: label, entry (Theme), group (Theme)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:25
+#. i18n: ectx: label, entry (Theme), group (Theme)
+#. i18n: file: src/loopy.kcfg:25
+#. i18n: ectx: label, entry (Theme), group (Theme)
+#: loopy-0.5.4/src/options.cpp:57 po/rc.cpp:24 po/rc.cpp:111
+#: src/options.cpp:57 rc.cpp:24 rc.cpp:111
+msgid "Theme"
+msgstr "TÃ©ma"
+
+#: loopy-0.5.4/src/options.cpp:58 src/options.cpp:58
 msgid "Seeking"
 msgstr "LÃ©ptetÃ©s"
 
-#: src/playlistdock.cpp:46
+#: loopy-0.5.4/src/playlistdock.cpp:46 src/playlistdock.cpp:46
 msgid "Clear playlist"
 msgstr "A lejÃ¡tszÃ³lista kiÃ¼rÃ­tÃ©se..."
 
-#: src/playlistdock.cpp:51
+#: loopy-0.5.4/src/playlistdock.cpp:51 src/playlistdock.cpp:51
 msgid "Add file(s)"
 msgstr "FÃ¡jl(ok) hozzÃ¡&adÃ¡sa..."
 
-#: src/playlistdock.cpp:56
+#: loopy-0.5.4/src/playlistdock.cpp:56 src/playlistdock.cpp:56
 msgid "Clear selected"
 msgstr "A kivÃ¡lasztott tÃ¶rlÃ©se"
 
-#: src/playlistdock.cpp:61
+#: loopy-0.5.4/src/playlistdock.cpp:61 src/playlistdock.cpp:61
 msgid "Move up"
 msgstr "MozgatÃ¡s fel"
 
-#: src/playlistdock.cpp:66
+#: loopy-0.5.4/src/playlistdock.cpp:66 src/playlistdock.cpp:66
 msgid "Move down"
 msgstr "MozgatÃ¡s le"
+
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:10
+#. i18n: ectx: label, entry (ButtonSeek), group (SeekingOptions)
+#. i18n: file: src/loopy.kcfg:10
+#. i18n: ectx: label, entry (ButtonSeek), group (SeekingOptions)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:10
+#. i18n: ectx: label, entry (ButtonSeek), group (SeekingOptions)
+#. i18n: file: src/loopy.kcfg:10
+#. i18n: ectx: label, entry (ButtonSeek), group (SeekingOptions)
+#: po/rc.cpp:15 po/rc.cpp:102 rc.cpp:15 rc.cpp:102
+msgid "Button seek"
+msgstr "GomblÃ©ptetÃ©s"
+
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:14
+#. i18n: ectx: label, entry (ButtonJump), group (SeekingOptions)
+#. i18n: file: src/loopy.kcfg:14
+#. i18n: ectx: label, entry (ButtonJump), group (SeekingOptions)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:14
+#. i18n: ectx: label, entry (ButtonJump), group (SeekingOptions)
+#. i18n: file: src/loopy.kcfg:14
+#. i18n: ectx: label, entry (ButtonJump), group (SeekingOptions)
+#: po/rc.cpp:18 po/rc.cpp:105 rc.cpp:18 rc.cpp:105
+msgid "Button jump"
+msgstr "GombugrÃ¡s"
+
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:18
+#. i18n: ectx: label, entry (MouseWheelSeek), group (SeekingOptions)
+#. i18n: file: src/loopy.kcfg:18
+#. i18n: ectx: label, entry (MouseWheelSeek), group (SeekingOptions)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:18
+#. i18n: ectx: label, entry (MouseWheelSeek), group (SeekingOptions)
+#. i18n: file: src/loopy.kcfg:18
+#. i18n: ectx: label, entry (MouseWheelSeek), group (SeekingOptions)
+#: po/rc.cpp:21 po/rc.cpp:108 rc.cpp:21 rc.cpp:108
+msgid "Mousewheel seek"
+msgstr "EgÃ©rgÃ¶rgÅ‘ lÃ©ptetÃ©s"
+
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:36
+#. i18n: ectx: label, entry (HidePlaylist), group (General)
+#. i18n: file: src/loopy.kcfg:36
+#. i18n: ectx: label, entry (HidePlaylist), group (General)
+#. i18n: file: loopy-0.5.4/src/loopy.kcfg:36
+#. i18n: ectx: label, entry (HidePlaylist), group (General)
+#. i18n: file: src/loopy.kcfg:36
+#. i18n: ectx: label, entry (HidePlaylist), group (General)
+#: po/rc.cpp:30 po/rc.cpp:117 rc.cpp:30 rc.cpp:117
+msgid "Hide Playlist on startup"
+msgstr "A lejÃ¡tszÃ³lista elrejtÃ©se indulÃ¡skor"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:6
+#. i18n: ectx: Menu (file)
+#. i18n: file: src/loopyui.rc:6
+#. i18n: ectx: Menu (file)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:6
+#. i18n: ectx: Menu (file)
+#. i18n: file: src/loopyui.rc:6
+#. i18n: ectx: Menu (file)
+#: po/rc.cpp:39 po/rc.cpp:126 rc.cpp:39 rc.cpp:126
+msgid "&File"
+msgstr "&FÃ¡jl"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:16
+#. i18n: ectx: Menu (play)
+#. i18n: file: src/loopyui.rc:16
+#. i18n: ectx: Menu (play)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:16
+#. i18n: ectx: Menu (play)
+#. i18n: file: src/loopyui.rc:16
+#. i18n: ectx: Menu (play)
+#: po/rc.cpp:42 po/rc.cpp:129 rc.cpp:42 rc.cpp:129
+msgid "&Play"
+msgstr "Le&jÃ¡tszÃ¡s"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:29
+#. i18n: ectx: Menu (video)
+#. i18n: file: src/loopyui.rc:29
+#. i18n: ectx: Menu (video)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:29
+#. i18n: ectx: Menu (video)
+#. i18n: file: src/loopyui.rc:29
+#. i18n: ectx: Menu (video)
+#: po/rc.cpp:45 po/rc.cpp:132 rc.cpp:45 rc.cpp:132
+msgid "&Video"
+msgstr "&VideÃ³"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:31
+#. i18n: ectx: Menu (aspectmenu)
+#. i18n: file: src/loopyui.rc:31
+#. i18n: ectx: Menu (aspectmenu)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:31
+#. i18n: ectx: Menu (aspectmenu)
+#. i18n: file: src/loopyui.rc:31
+#. i18n: ectx: Menu (aspectmenu)
+#: po/rc.cpp:48 po/rc.cpp:135 rc.cpp:48 rc.cpp:135
+msgid "&Aspect ratio"
+msgstr "&KÃ©parÃ¡ny"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:38
+#. i18n: ectx: Menu (scalemenu)
+#. i18n: file: src/loopyui.rc:38
+#. i18n: ectx: Menu (scalemenu)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:38
+#. i18n: ectx: Menu (scalemenu)
+#. i18n: file: src/loopyui.rc:38
+#. i18n: ectx: Menu (scalemenu)
+#: po/rc.cpp:51 po/rc.cpp:138 rc.cpp:51 rc.cpp:138
+msgid "&Scale mode"
+msgstr "&ÃtmÃ©retezÃ©si mÃ³d"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:43
+#. i18n: ectx: Menu (subtitles)
+#. i18n: file: src/loopyui.rc:43
+#. i18n: ectx: Menu (subtitles)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:43
+#. i18n: ectx: Menu (subtitles)
+#. i18n: file: src/loopyui.rc:43
+#. i18n: ectx: Menu (subtitles)
+#: po/rc.cpp:54 po/rc.cpp:141 rc.cpp:54 rc.cpp:141
+#, fuzzy
+msgid "&Subtitles"
+msgstr "&CÃ­m"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:47
+#. i18n: ectx: Menu (titlemenu)
+#. i18n: file: src/loopyui.rc:47
+#. i18n: ectx: Menu (titlemenu)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:47
+#. i18n: ectx: Menu (titlemenu)
+#. i18n: file: src/loopyui.rc:47
+#. i18n: ectx: Menu (titlemenu)
+#: po/rc.cpp:57 po/rc.cpp:144 rc.cpp:57 rc.cpp:144
+msgid "&Title"
+msgstr "&CÃ­m"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:50
+#. i18n: ectx: Menu (chaptermenu)
+#. i18n: file: src/loopyui.rc:50
+#. i18n: ectx: Menu (chaptermenu)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:50
+#. i18n: ectx: Menu (chaptermenu)
+#. i18n: file: src/loopyui.rc:50
+#. i18n: ectx: Menu (chaptermenu)
+#: po/rc.cpp:60 po/rc.cpp:147 rc.cpp:60 rc.cpp:147
+msgid "&Chapter"
+msgstr "&Fejezet"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:53
+#. i18n: ectx: Menu (anglemenu)
+#. i18n: file: src/loopyui.rc:53
+#. i18n: ectx: Menu (anglemenu)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:53
+#. i18n: ectx: Menu (anglemenu)
+#. i18n: file: src/loopyui.rc:53
+#. i18n: ectx: Menu (anglemenu)
+#: po/rc.cpp:63 po/rc.cpp:150 rc.cpp:63 rc.cpp:150
+msgid "&Angle"
+msgstr "&DÅ‘lÃ©sszÃ¶g"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:60
+#. i18n: ectx: Menu (audio)
+#. i18n: file: src/loopyui.rc:64
+#. i18n: ectx: Menu (audio)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:60
+#. i18n: ectx: Menu (audio)
+#. i18n: file: src/loopyui.rc:64
+#. i18n: ectx: Menu (audio)
+#: po/rc.cpp:66 po/rc.cpp:156 rc.cpp:66 rc.cpp:156
+msgid "&Audio"
+msgstr "&Hang"
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:66
+#. i18n: ectx: Menu (channelmenu)
+#. i18n: file: src/loopyui.rc:70
+#. i18n: ectx: Menu (channelmenu)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:66
+#. i18n: ectx: Menu (channelmenu)
+#. i18n: file: src/loopyui.rc:70
+#. i18n: ectx: Menu (channelmenu)
+#: po/rc.cpp:69 po/rc.cpp:159 rc.cpp:69 rc.cpp:159
+msgid "&Audio Channels"
+msgstr ""
+
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:77
+#. i18n: ectx: ToolBar (mainToolBar)
+#. i18n: file: src/loopyui.rc:81
+#. i18n: ectx: ToolBar (mainToolBar)
+#. i18n: file: loopy-0.5.4/src/loopyui.rc:77
+#. i18n: ectx: ToolBar (mainToolBar)
+#. i18n: file: src/loopyui.rc:81
+#. i18n: ectx: ToolBar (mainToolBar)
+#: po/rc.cpp:72 po/rc.cpp:162 rc.cpp:72 rc.cpp:162
+msgid "Main Toolbar"
+msgstr "Alap eszkÃ¶ztÃ¡r"
+
+#. i18n: file: src/loopyui.rc:59
+#. i18n: ectx: Menu (stayontopmenu)
+#: po/rc.cpp:153 rc.cpp:153
+msgid "&Stay on top"
+msgstr ""
+
+#: po/rc.cpp:178 rc.cpp:178
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Barcza KÃ¡roly (www.blackpanther.hu)"
+
+#: po/rc.cpp:179 rc.cpp:179
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kbarcza@blackpanther.hu"
+
+#: src/mainwindow.cpp:251
+msgid "Never"
+msgstr ""
+
+#: src/mainwindow.cpp:252
+msgid "Always"
+msgstr ""
+
+#: src/mainwindow.cpp:253
+msgid "While playing"
+msgstr ""
+
+#: src/mainwindow.cpp:286
+msgid "Snapshot"
+msgstr ""
+
+#: src/mainwindow.cpp:1219
+msgid "Last External Subtitle"
+msgstr ""

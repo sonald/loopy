@@ -64,6 +64,6 @@ int main(int argc, char *argv[])
     QTextCodec* codec = QTextCodec::codecForName( "UTF-8" );
     if ( codec )
         QTextCodec::setCodecForCStrings( codec );
-    
+
     return app.exec();
 }
