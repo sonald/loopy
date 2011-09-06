@@ -1,6 +1,6 @@
 Name: loopy
 Version: 0.5.4
-Release: 1
+Release: 2
 Summary: a themable media player powered by phonon
 License: RedFlag License
 Vendor:	RedFlag Linux
@@ -72,9 +72,13 @@ rm -rf $RPM_BUILD_ROOT
 # translations
 /usr/share/locale/pt_BR/LC_MESSAGES/loopy.mo
 /usr/share/locale/cs/LC_MESSAGES/loopy.mo
+/usr/share/locale/zh_CN/LC_MESSAGES/loopy.mo
 /usr/share/locale/de/LC_MESSAGES/loopy.mo
 /usr/share/locale/hu/LC_MESSAGES/loopy.mo
 
 %changelog
+* Tue Sep 06 2011 sycao <sycao@redflag-linux.com> 0.5.4-2
+- 0.5.4 fixes and zh_CN translation
+
 * Tue Aug 08 2011 sycao <sycao@redflag-linux.com> 0.5.4-1
 - initial package
