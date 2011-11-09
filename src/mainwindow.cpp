@@ -563,13 +563,20 @@ void MainWindow::addFile()
 QStringList MainWindow::getSupportedMimeTypes()
 {
     QStringList mimeTypes =
-        Phonon::BackendCapabilities::availableMimeTypes().filter("video/");
+        Phonon::BackendCapabilities::availableMimeTypes().filter(
+            QRegExp("video/|application/") );
 
     if (mimeTypes.size() == 0) {
         KMimeType::List mimeList = KMimeType::allMimeTypes();
 
         Q_FOREACH(KMimeType::Ptr mime, mimeList) {
-            if (mime->name().startsWith("video/")) {
+            if (mime->name().startsWith("video/")
+                || mime->name() == QLatin1String("application/ogg")
+                || mime->name() == QLatin1String("application/x-ogg")
+                || mime->name() == QLatin1String("application/vnd.rn-realmedia")
+                || mime->name() == QLatin1String("application/x-flash-video")
+                || mime->name() == QLatin1String("application/x-quicktimeplayer")
+                || mime->name() == QLatin1String("application/x-extension-mp4")) {
                 mimeTypes << mime->name();
             }
         }
